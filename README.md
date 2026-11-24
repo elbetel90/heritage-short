@@ -2,7 +2,7 @@
 
 A 60–90 second short film built from one contract, `storyboard.json`. Each stage reads that file and writes its own output: narration, keyframes, moving shots, music, and the final edit. Changing one shot regenerates only that shot.
 
-The film is for the audience named in `DESIGN.md`. This repository is the pipeline that makes it.
+The film is for the audience named in `docs/DESIGN.md`. Consent and licences are in `docs/ETHICS.md`. The stage contracts are in `docs/ARCHITECTURE.md`. This repository is the pipeline that makes the film.
 
 ## Run
 
