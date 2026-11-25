@@ -1,5 +1,6 @@
 import json
 import time
+import uuid
 import urllib.error
 import urllib.request
 
@@ -25,6 +26,55 @@ def post_json(url, payload, headers, timeout=60, attempts=3):
                 latency_ms = int((time.time() - started) * 1000)
                 parsed = json.loads(raw.decode("utf-8")) if raw else {}
                 return response.status, parsed, latency_ms
+        except urllib.error.HTTPError as error:
+            latency_ms = int((time.time() - started) * 1000)
+            body = error.read().decode("utf-8", errors="replace")
+            last_error = HTTPError(error.code, body)
+            last_error.latency_ms = latency_ms
+            if error.code not in (429, 500, 502, 503, 504) or attempt == attempts - 1:
+                raise last_error
+        time.sleep(0.4 * (2 ** attempt))
+    raise last_error
+
+
+def encode_multipart(fields, files=None):
+    """fields is a list of (name, value). files is a list of (name, filename, bytes)."""
+    boundary = "----heritage%s" % uuid.uuid4().hex
+    chunks = []
+    for name, value in fields:
+        chunks.append(("--%s\r\n" % boundary).encode("utf-8"))
+        chunks.append(('Content-Disposition: form-data; name="%s"\r\n\r\n' % name).encode("utf-8"))
+        chunks.append(str(value).encode("utf-8"))
+        chunks.append(b"\r\n")
+    for name, filename, payload in files or []:
+        chunks.append(("--%s\r\n" % boundary).encode("utf-8"))
+        chunks.append(
+            (
+                'Content-Disposition: form-data; name="%s"; filename="%s"\r\n'
+                "Content-Type: image/png\r\n\r\n" % (name, filename)
+            ).encode("utf-8")
+        )
+        chunks.append(payload)
+        chunks.append(b"\r\n")
+    chunks.append(("--%s--\r\n" % boundary).encode("utf-8"))
+    return boundary, b"".join(chunks)
+
+
+def post_multipart(url, fields, files, headers, timeout=180, attempts=3):
+    """POST multipart form data. Retries 429 and 5xx. Returns (status, body, content_type, latency_ms)."""
+    boundary, data = encode_multipart(fields, files)
+    last_error = None
+    for attempt in range(attempts):
+        request_headers = dict(headers)
+        request_headers["Content-Type"] = "multipart/form-data; boundary=%s" % boundary
+        request = urllib.request.Request(url, data=data, headers=request_headers, method="POST")
+        started = time.time()
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                raw = response.read()
+                latency_ms = int((time.time() - started) * 1000)
+                content_type = response.headers.get("Content-Type", "")
+                return response.status, raw, content_type, latency_ms
         except urllib.error.HTTPError as error:
             latency_ms = int((time.time() - started) * 1000)
             body = error.read().decode("utf-8", errors="replace")
