@@ -6,13 +6,16 @@ The film is for the audience named in `docs/DESIGN.md`. Consent and licences are
 
 ## Run
 
-From a clean clone, the pipeline command will be:
+From a clean clone, after `.env` is filled in:
 
 ```bash
-make film
+make test
+make validate
+make smoke
+make radio
 ```
 
-That command is not implemented yet. This commit is the project scaffold.
+`make radio` validates `storyboard.json`, speaks the English lines, and writes `outputs/radio/radio-cut.mp4` (black picture, voice, quiet tone). `make film`, which adds pictures, moving shots, and the score, is not implemented yet.
 
 ## Setup
 
