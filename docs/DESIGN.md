@@ -30,7 +30,7 @@ Narration is English, spoken by Schedar: dry, low, and unsentimental. Each spoke
 | 04 | Diversion | He steps past her shoes and does not look down. | "People you love get filed as tasks. Five a.m. Alarm set. Done." | A person's morning is reduced to a scheduling entry. |
 | 05 | Silence | The earbud hangs. He is still in the room. | "Then the track runs out. And the room is just... there." | When the noise stops, the bare room remains. |
 | 06 | Silence | He stands still, hands empty. | None. Room tone only. | The want for a reason is left with nothing to do. |
-| 07 | Silence | The clock reads five. The window stays dark. | "You wait for morning to matter. It doesn't. It's just light." | The morning arrives with no meaning attached to it. |
+| 07 | Silence | The window stays dark. | "You wait for morning to matter. It doesn't. It's just light." | The morning arrives with no meaning attached to it. |
 | 08 | Turn | He looks from his empty hands to her closed door. | "Nobody's coming to explain it. She still has to be up by six." | Without an outside answer, care for another person still matters. |
 | 09 | Turn | His hand leaves the phone. | None. The hand leaves the phone. | He steps away from the diversion without announcing it. |
 | 10 | Light | He pours tea. His face stays ordinary. | "It doesn't fix anything. Tomorrow the earbuds go back in." | He knows the care does not fix the morning, and he does it anyway. |

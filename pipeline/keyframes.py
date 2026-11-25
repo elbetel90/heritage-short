@@ -33,6 +33,7 @@ def _client(prompt, seed, reference_path):
         "not smiling, not excited, not crying, not frowning. "
         "Dim room leaning dark, a little disordered, he stays inside the room. "
         "One weak lamp, no daylight. The room is image 1. "
+        "No clock and no watch anywhere in the room. "
     )
     references = [str(face), reference_path]
     try:
@@ -136,6 +137,7 @@ def _wide_client(prompt, seed, reference_path, still_path):
         "Recompose that moment as a landscape 16:9 photograph that fills the frame edge to edge. "
         "The camera is farther back. The dim room continues to the left edge and the right edge. "
         "The same man stands inside the room, whole head in frame, space above the hair, lips closed, resting. "
+        "No clock and no watch anywhere in the room. "
         "No black bars, no pillarbox, no vertical strip of picture. "
     )
     references = [str(face), still_path]

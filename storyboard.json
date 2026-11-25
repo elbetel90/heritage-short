@@ -240,13 +240,13 @@
         "tail_sec": 0.9
       },
       "image": {
-        "prompt": "He stands inside the dim room near a dark window. A wall clock reads five. Grey light only, leaning dark. A chair with a jacket. Black hoodie, lips closed.",
-        "seed": 1307,
+        "prompt": "He stands inside the dim room. A dark window is visible beside him. Grey light only, leaning dark. A chair with a jacket. Black hoodie, lips closed. No clock, no watch.",
+        "seed": 2307,
         "reference_ids": []
       },
       "motion": {
         "mode": "i2v",
-        "prompt": "The second hand moves. The camera does not.",
+        "prompt": "He stays still. The camera does not.",
         "seed": 1007,
         "fallback": "kenburns",
         "resolution": "480p"
