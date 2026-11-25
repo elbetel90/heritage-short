@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from pipeline.audio import prepend_silence, wav_duration, write_silence
+from pipeline.audio import append_silence, prepend_silence, wav_duration, write_silence
 from pipeline.cache import hash_payload, load, narration_payload, save, shot_style
 from pipeline.env import ROOT, secrets_from_env
 from pipeline.log import append
@@ -74,8 +74,11 @@ def render(storyboard, output_dir=None, manifest_path=None, log_path=None, clien
                     )
                 dest.write_bytes(audio)
                 lead_in = float(shot["narration"].get("lead_in_sec") or 0)
+                tail = float(shot["narration"].get("tail_sec") or 0)
                 if lead_in > 0:
                     prepend_silence(dest, lead_in)
+                if tail > 0:
+                    append_silence(dest, tail)
                 status = "ok"
                 error = None
             except Exception as exc:

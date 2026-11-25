@@ -33,12 +33,22 @@ def hold_ids(storyboard):
     return [shot["id"] for shot in storyboard["shots"] if not shot["narration"]["text"].strip()]
 
 
+def block_sec(storyboard, key):
+    block = storyboard.get(key) or {}
+    return float(block.get("duration_sec") or 0)
+
+
+def bookend_sec(storyboard):
+    """Black intro, black outro, and the end card."""
+    return block_sec(storyboard, "intro") + block_sec(storyboard, "outro") + float(storyboard["end_card"]["duration_sec"])
+
+
 def fit_holds(storyboard):
     """Lengthen the wordless shots so the film lands near 88s and inside 60–90s.
 
     Returns the hold length in seconds. Raises DurationError when no hold works.
     """
-    end = float(storyboard["end_card"]["duration_sec"])
+    end = bookend_sec(storyboard)
     speech = spoken_sum(storyboard)
     ids = hold_ids(storyboard)
     if not ids:

@@ -10,6 +10,7 @@ from pipeline.env import ROOT
 from pipeline.log import append
 from pipeline.narration import OUTPUT_DIR
 from pipeline.radio import RADIO_PATH, assemble
+from pipeline.timing import block_sec
 from pipeline.validate import STORYBOARD_PATH, load_json
 
 MODEL_ID = "ACE-Step-1.5"
@@ -96,6 +97,8 @@ def mix(storyboard, bed_path, narration_dir=None, output_path=None, work_dir=Non
         end_card_sec=storyboard["end_card"]["duration_sec"],
         bed_path=bed_path,
         duck=storyboard["mix"]["duck"],
+        intro_sec=block_sec(storyboard, "intro"),
+        outro_sec=block_sec(storyboard, "outro"),
     )
 
 

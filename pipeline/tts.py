@@ -35,10 +35,23 @@ def _find_audio(value):
 def _retry_after(error):
     if getattr(error, "status", None) != 429:
         return None
-    match = re.search(r"retry in ([0-9]+(?:\.[0-9]+)?)", str(error), re.IGNORECASE)
-    if match:
-        return float(match.group(1)) + 1.0
-    return 60.0
+    text = str(error)
+    if re.search(r"per day", text, re.IGNORECASE):
+        return None
+    clock = re.search(
+        r"retry in (?:(\d+)h)?(?:(\d+)m)?(\d+(?:\.\d+)?)s",
+        text,
+        re.IGNORECASE,
+    )
+    if not clock:
+        return 60.0
+    hours = int(clock.group(1) or 0)
+    minutes = int(clock.group(2) or 0)
+    seconds = float(clock.group(3))
+    wait = hours * 3600 + minutes * 60 + seconds + 1.0
+    if wait > 120:
+        return None
+    return wait
 
 
 def synthesize(text, voice, style, model=None):

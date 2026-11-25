@@ -36,6 +36,7 @@ def narration_payload(shot, voice):
         "style": shot_style(shot, voice),
         "model": PRIMARY_MODEL,
         "lead_in_sec": float(shot["narration"].get("lead_in_sec") or 0),
+        "tail_sec": float(shot["narration"].get("tail_sec") or 0),
     }
     if not text.strip():
         payload["duration_sec"] = shot["duration_sec"]
