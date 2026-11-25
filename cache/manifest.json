@@ -1,79 +1,429 @@
 {
+  "keyframes-16x9/s01": {
+    "input_hash": "85a7ce981c6f4e9e5c3b63032fcd4af83523bf9f2cddbbb6b7f4139c8e09a411",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes-16x9/s01.png",
+    "seed": 1301,
+    "status": "ok"
+  },
+  "keyframes-16x9/s02": {
+    "input_hash": "af6b576a4112b0263b4744c87496884c1562dfe466fa99272877b7c9ee57ec76",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes-16x9/s02.png",
+    "seed": 1302,
+    "status": "ok"
+  },
+  "keyframes-16x9/s03": {
+    "input_hash": "69d5edc5513dfdd1a1ea262e58249a4fc87fc3a8d7125085f7605a3b9d8c4492",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes-16x9/s03.png",
+    "seed": 1303,
+    "status": "ok"
+  },
+  "keyframes-16x9/s04": {
+    "input_hash": "ceb089cf5a002b511ef18e2d20180b0d6adb480d713d958d6f753f0a3b70643e",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes-16x9/s04.png",
+    "seed": 1304,
+    "status": "ok"
+  },
+  "keyframes-16x9/s05": {
+    "input_hash": "ff22c4e5250c65b4d784b922e100627638d59e55741bb4e9d06977015dba99b0",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes-16x9/s05.png",
+    "seed": 1305,
+    "status": "ok"
+  },
+  "keyframes-16x9/s06": {
+    "input_hash": "00c25783c890774a7d1ff5e639085086dc3352dfccd686cf2a7740a0209792a6",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes-16x9/s06.png",
+    "seed": 1306,
+    "status": "ok"
+  },
+  "keyframes-16x9/s07": {
+    "input_hash": "3541c797a412e5ba94fc2bf94646be8247a88825ea01785e58a6144e97ef59da",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes-16x9/s07.png",
+    "seed": 1307,
+    "status": "ok"
+  },
+  "keyframes-16x9/s08": {
+    "input_hash": "03811004182032d2a7ca2ae410f7579b19ed00489f36038a0b1be9862cd9dc0d",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes-16x9/s08.png",
+    "seed": 1308,
+    "status": "ok"
+  },
+  "keyframes-16x9/s09": {
+    "input_hash": "90b4849bd64a3d90a6f3d76f2e56b4ba15eae982408b11895e484db979fcac66",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes-16x9/s09.png",
+    "seed": 1309,
+    "status": "ok"
+  },
+  "keyframes-16x9/s10": {
+    "input_hash": "df9837024fe4341def84cf73f4c6b5516cdde3b75ab496b8abc8ee9b68aa138f",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes-16x9/s10.png",
+    "seed": 1310,
+    "status": "ok"
+  },
+  "keyframes-16x9/s11": {
+    "input_hash": "51a66500c1745a5b1d6a64faf6ccf906dc6e48ecc0bd803b4b94643c10a67992",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes-16x9/s11.png",
+    "seed": 1311,
+    "status": "ok"
+  },
+  "keyframes/s01": {
+    "input_hash": "aaeff182ccd4a84199d7a6d3d7b52da96cc417a869fe6affc5688a9b4ac61301",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes/s01.png",
+    "seed": 1301,
+    "status": "ok"
+  },
+  "keyframes/s02": {
+    "input_hash": "2beea18a0b2e74d66d0ce284e704671111bea1c1f3f2a345eb93b8e61e42c4f6",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes/s02.png",
+    "seed": 1302,
+    "status": "ok"
+  },
+  "keyframes/s03": {
+    "input_hash": "d0570ab5e0f1e173ec862020605fcba8a90cdad418df4e984c91611e531303f9",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes/s03.png",
+    "seed": 1303,
+    "status": "ok"
+  },
+  "keyframes/s04": {
+    "input_hash": "3fbef6f855744f594197a1df0dfd3048be9eaaad802878b9824c709e9607428f",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes/s04.png",
+    "seed": 1304,
+    "status": "ok"
+  },
+  "keyframes/s05": {
+    "input_hash": "417a3e4d376a5f1395642cb758854f442c87ca4eaf83be793e359a810b2174c3",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes/s05.png",
+    "seed": 1305,
+    "status": "ok"
+  },
+  "keyframes/s06": {
+    "input_hash": "f0210b29503b8538782bf938a5ed70822e60a5167d9992d89da5f54a1ef8c04f",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes/s06.png",
+    "seed": 1306,
+    "status": "ok"
+  },
+  "keyframes/s07": {
+    "input_hash": "7599aaeb188b7572391ec4c1012a1c890c2cb724e8c16f3fc3f72672b8143f88",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes/s07.png",
+    "seed": 1307,
+    "status": "ok"
+  },
+  "keyframes/s08": {
+    "input_hash": "f9bee4cade0fdecee2ff43c3641ae9fb839e51c1e8dcb07e6af689485e534ff7",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes/s08.png",
+    "seed": 1308,
+    "status": "ok"
+  },
+  "keyframes/s09": {
+    "input_hash": "c84575e6d213f3136786dce7b7f313eccb48d280e3644f054f6bef317a9e7f71",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes/s09.png",
+    "seed": 1309,
+    "status": "ok"
+  },
+  "keyframes/s10": {
+    "input_hash": "fcff942df86d694134b5428185d55e222b2ed2ca37ac9e3172afeaced5c73d3f",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes/s10.png",
+    "seed": 1310,
+    "status": "ok"
+  },
+  "keyframes/s11": {
+    "input_hash": "8bdfbbc0b2aa0696de0c59941ecedb04019840eb8fd3a84bb8eed7e2dbf6f71a",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/keyframes/s11.png",
+    "seed": 1311,
+    "status": "ok"
+  },
+  "music/seed-11": {
+    "input_hash": "46f09c2bcff18350bba1607a29c8e35f7f79f2a6a24b88f735bdd6a821f51d37",
+    "model": "ACE-Step-1.5",
+    "output_path": "outputs/music/seed-11.wav",
+    "seed": 11,
+    "status": "ok"
+  },
+  "music/seed-22": {
+    "input_hash": "310869c984be6758d9835115cd35abea6b6bcdbfd38abb98ae256d50f036909c",
+    "model": "ACE-Step-1.5",
+    "output_path": "outputs/music/seed-22.wav",
+    "seed": 22,
+    "status": "ok"
+  },
+  "music/seed-33": {
+    "input_hash": "adf1d45aa829818e5552d27980f925316329baa723db67c377b8f0d32673cccc",
+    "model": "ACE-Step-1.5",
+    "output_path": "outputs/music/seed-33.wav",
+    "seed": 33,
+    "status": "ok"
+  },
   "narration/s01": {
-    "input_hash": "a3cf3de12e6170be40e4de2f8749ea624410be1481c2f415831b9d4513a6a779",
+    "input_hash": "dd1fe0f7190be8337207903a629bb7bbdd54064580dd256ab034d4bf4a0a4e06",
     "model": "gemini-3.8-flash-tts",
     "output_path": "outputs/narration/s01.wav",
     "seed": null,
     "status": "ok"
   },
   "narration/s02": {
-    "input_hash": "8538aeed092a6b91413c53cac094bcf5dd9d2a92147ef7c98e140c02d613c736",
+    "input_hash": "79e409a2a8e5bfe654c65b3fd2cc09128edd1567093ae0fbce1206eee1ac5d03",
     "model": "gemini-3.8-flash-tts",
     "output_path": "outputs/narration/s02.wav",
     "seed": null,
     "status": "ok"
   },
   "narration/s03": {
-    "input_hash": "806bc225947eaae26d5edbe907a44e463b19371204aadf4008ee09f06e3e9a5c",
-    "model": "gemini-3.8-flash-tts",
+    "input_hash": "539729f2e879974fc35a087135dedaf735858322c17b92748d0182d69d2a870a",
+    "model": "silence",
     "output_path": "outputs/narration/s03.wav",
     "seed": null,
     "status": "ok"
   },
   "narration/s04": {
-    "input_hash": "de9a55a2b9d347ad2d86e2905fc75b5e43884d186d01142a298c31a469542493",
+    "input_hash": "cba5b268ff9b8d75bcba71c89dc52dd6ba4d27c6a323286768787d32efa783d1",
     "model": "gemini-3.8-flash-tts",
     "output_path": "outputs/narration/s04.wav",
     "seed": null,
     "status": "ok"
   },
   "narration/s05": {
-    "input_hash": "712933c3ea4e055c336bc31c06fdb771f1a8044cf9a2a2a0744c69c10b8e0365",
+    "input_hash": "5b9ad08a685d63ccc97e11318441f6b46de911c2935ba07e1d4632cf8cc7628f",
     "model": "gemini-3.8-flash-tts",
     "output_path": "outputs/narration/s05.wav",
     "seed": null,
     "status": "ok"
   },
   "narration/s06": {
-    "input_hash": "2c7b2aa7b6d645592951e79afa58b13df511a2031f918a8d821ac97c2a833244",
+    "input_hash": "844491be1345c2d7902e046236ba96da1a1ecedffedc1845aea8553c013fc15b",
     "model": "silence",
     "output_path": "outputs/narration/s06.wav",
     "seed": null,
     "status": "ok"
   },
   "narration/s07": {
-    "input_hash": "2c7b2aa7b6d645592951e79afa58b13df511a2031f918a8d821ac97c2a833244",
-    "model": "silence",
+    "input_hash": "42257eda3af488164bf604acd339fdede1f6386c3c2940b971a8ecd761deae0a",
+    "model": "gemini-3.8-flash-tts",
     "output_path": "outputs/narration/s07.wav",
     "seed": null,
     "status": "ok"
   },
   "narration/s08": {
-    "input_hash": "4b4b9397ff2756d5b0372b73dca37f21048caefceb548ad0486357104fd16064",
+    "input_hash": "aba2c5b6094c1a2b60835e2c4af3b792e448a1aa13f93ca2b3f62c954523f4fd",
     "model": "gemini-3.8-flash-tts",
     "output_path": "outputs/narration/s08.wav",
     "seed": null,
     "status": "ok"
   },
   "narration/s09": {
-    "input_hash": "ce84faf01a6196f8f5b8fc796ba909058eb64f018bcce1047e91627198248dbd",
-    "model": "gemini-3.8-flash-tts",
+    "input_hash": "2540db280255f9d334404075f28c6f1a935d00dc95e7133b11397e06e963bba8",
+    "model": "silence",
     "output_path": "outputs/narration/s09.wav",
     "seed": null,
     "status": "ok"
   },
   "narration/s10": {
-    "input_hash": "5945b8ba0f803ecfc093179e67b5e2bab8b194b32a1ea42c05364031957c73d8",
+    "input_hash": "6fddd38391e03e56ce25cd1d5e456605f3e30833faaf3ed35ca6327dcea20729",
     "model": "gemini-3.8-flash-tts",
     "output_path": "outputs/narration/s10.wav",
     "seed": null,
     "status": "ok"
   },
   "narration/s11": {
-    "input_hash": "9f22510c01eaa72369222591c4941b60906f584df47d10d5f7837f623948f5b0",
+    "input_hash": "765a3760a0fdc1192822c49e9adde04ff3e739724b37333554ba817fd682c140",
     "model": "gemini-3.8-flash-tts",
     "output_path": "outputs/narration/s11.wav",
     "seed": null,
+    "status": "ok"
+  },
+  "references/tarek-expression": {
+    "input_hash": "8638abfbf47603a716d2d89427ea9c3987de1ec90b46c4c78bfa5a8c1e6a030f",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/references/tarek-expression.png",
+    "seed": 2102,
+    "status": "ok"
+  },
+  "references/tarek-frame": {
+    "input_hash": "671bee7760a63ad29ce58b892cecb550476444e4255abcb5dd2f70e0ce891b86",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/references/tarek-frame.png",
+    "seed": 2103,
+    "status": "ok"
+  },
+  "references/tarek-view": {
+    "input_hash": "8fc8dbf24c5237d6f832cd99138d76ed61224ed8cabbf2907987b02274d92b3a",
+    "model": "@cf/black-forest-labs/flux-2-klein-4b",
+    "output_path": "outputs/references/tarek-view.png",
+    "seed": 2101,
+    "status": "ok"
+  },
+  "shots-16x9/s01": {
+    "input_hash": "96ca9eda2cccf3e200a9b413df0d895d40973ebe4d94721879cdf88669665048",
+    "model": "kenburns",
+    "output_path": "outputs/shots-16x9/s01.mp4",
+    "seed": 1001,
+    "status": "ok"
+  },
+  "shots-16x9/s02": {
+    "input_hash": "9308884c520f7d9090378545510f80ae3be02779b7ef465b5d9609eab2bbccbf",
+    "model": "kenburns",
+    "output_path": "outputs/shots-16x9/s02.mp4",
+    "seed": 1002,
+    "status": "ok"
+  },
+  "shots-16x9/s03": {
+    "input_hash": "e81b98d3de234bda7416eee1670a0c8d72c8ac224d23d111d3fb71e24b7b38f9",
+    "model": "kenburns",
+    "output_path": "outputs/shots-16x9/s03.mp4",
+    "seed": 1003,
+    "status": "ok"
+  },
+  "shots-16x9/s04": {
+    "input_hash": "c12586bc13dddb9337b1c0f6ef66949ed6d5ba67f40c6905e7da50acb1cd9065",
+    "model": "kenburns",
+    "output_path": "outputs/shots-16x9/s04.mp4",
+    "seed": 1004,
+    "status": "ok"
+  },
+  "shots-16x9/s05": {
+    "input_hash": "8abc44759cd0ee57c45a3fb2274ad22d7c7690ba4262ab43a4137f603e724505",
+    "model": "kenburns",
+    "output_path": "outputs/shots-16x9/s05.mp4",
+    "seed": 1005,
+    "status": "ok"
+  },
+  "shots-16x9/s06": {
+    "input_hash": "fc65fd5729fcebae9543635967bd108a9c4bbefee49c5466c84741dd06fb8381",
+    "model": "kenburns",
+    "output_path": "outputs/shots-16x9/s06.mp4",
+    "seed": 1006,
+    "status": "ok"
+  },
+  "shots-16x9/s07": {
+    "input_hash": "5c3e2623fe247f024b3793b43cfc7e4b5890e8c17d3c68db3c1456044b1d0925",
+    "model": "kenburns",
+    "output_path": "outputs/shots-16x9/s07.mp4",
+    "seed": 1007,
+    "status": "ok"
+  },
+  "shots-16x9/s08": {
+    "input_hash": "f1b014cd090ad16c323ee19b77042b1c18e9733000a34280a214c08adfde4b6e",
+    "model": "kenburns",
+    "output_path": "outputs/shots-16x9/s08.mp4",
+    "seed": 1008,
+    "status": "ok"
+  },
+  "shots-16x9/s09": {
+    "input_hash": "3a8701f366f6db8fd9a26e4695704afb3fea21aecf1707a965120c0e04888f36",
+    "model": "kenburns",
+    "output_path": "outputs/shots-16x9/s09.mp4",
+    "seed": 1009,
+    "status": "ok"
+  },
+  "shots-16x9/s10": {
+    "input_hash": "21733a0acb145ccaf91b3f66e3b93fa03c76fa8dc1a790bac5c70af1faabeac0",
+    "model": "kenburns",
+    "output_path": "outputs/shots-16x9/s10.mp4",
+    "seed": 1010,
+    "status": "ok"
+  },
+  "shots-16x9/s11": {
+    "input_hash": "1760867783def2c534fcb0c057be496e3fda64ce01f53a85fd3fc33277bda842",
+    "model": "kenburns",
+    "output_path": "outputs/shots-16x9/s11.mp4",
+    "seed": 1011,
+    "status": "ok"
+  },
+  "shots/s01": {
+    "input_hash": "695386c4e07ea911371a1d34d6a386981591607164424803a4e282205986aecc",
+    "model": "kenburns",
+    "output_path": "outputs/shots/s01.mp4",
+    "seed": 1001,
+    "status": "ok"
+  },
+  "shots/s02": {
+    "input_hash": "bb253aad71821bc07b74078ddf4b5a9a6afdbaddf6b45d4c7d88c8f2a097f9ec",
+    "model": "kenburns",
+    "output_path": "outputs/shots/s02.mp4",
+    "seed": 1002,
+    "status": "ok"
+  },
+  "shots/s03": {
+    "input_hash": "3c65dcef7cdcbc64b9b14029cc3db12d2e5c6c08fb199d7f4a60f8b23cc3be4c",
+    "model": "kenburns",
+    "output_path": "outputs/shots/s03.mp4",
+    "seed": 1003,
+    "status": "ok"
+  },
+  "shots/s04": {
+    "input_hash": "33b2c6685568e93224f8b0e9143018b47fbafe36b03ae68c1b22716ecec43539",
+    "model": "kenburns",
+    "output_path": "outputs/shots/s04.mp4",
+    "seed": 1004,
+    "status": "ok"
+  },
+  "shots/s05": {
+    "input_hash": "bbf516f41b1260c1460163d23a62dcb2fb4a06eeddc9fbe1863e07b7e49c389a",
+    "model": "kenburns",
+    "output_path": "outputs/shots/s05.mp4",
+    "seed": 1005,
+    "status": "ok"
+  },
+  "shots/s06": {
+    "input_hash": "53e7f1ca3f15d23e7bd5805a562b5c5fdeb2b713f31975dffb868f1cc8c470dc",
+    "model": "kenburns",
+    "output_path": "outputs/shots/s06.mp4",
+    "seed": 1006,
+    "status": "ok"
+  },
+  "shots/s07": {
+    "input_hash": "73d3ed9a56d514376699038188a2fed7f35552b6f087feef90969dccd8cdf677",
+    "model": "kenburns",
+    "output_path": "outputs/shots/s07.mp4",
+    "seed": 1007,
+    "status": "ok"
+  },
+  "shots/s08": {
+    "input_hash": "9afdc78a9026ec1688a7f5d0b5c75f9bd5d53d0a56d65b8d27732072a59f7a38",
+    "model": "kenburns",
+    "output_path": "outputs/shots/s08.mp4",
+    "seed": 1008,
+    "status": "ok"
+  },
+  "shots/s09": {
+    "input_hash": "430a3578639a2ea6d381aa9ec430a162388e7c5b3be0e8e9a36feaa4ecd2a24c",
+    "model": "kenburns",
+    "output_path": "outputs/shots/s09.mp4",
+    "seed": 1009,
+    "status": "ok"
+  },
+  "shots/s10": {
+    "input_hash": "786b4631eb95eb32376e698814638d8dd798e82cec5f31c5074b875d8f18f131",
+    "model": "kenburns",
+    "output_path": "outputs/shots/s10.mp4",
+    "seed": 1010,
+    "status": "ok"
+  },
+  "shots/s11": {
+    "input_hash": "b1f27a582c19cf9f8dc936b0b67b3d65c2bf414aeb46c31b9e9874d76a33b78d",
+    "model": "kenburns",
+    "output_path": "outputs/shots/s11.mp4",
+    "seed": 1011,
     "status": "ok"
   }
 }
