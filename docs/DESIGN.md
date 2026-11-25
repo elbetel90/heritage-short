@@ -16,25 +16,25 @@ The ending is not a solved crisis. The silence is still there. The character kno
 
 ## Story
 
-Tarek counts his nights so they will finally mean something. He writes down his sister's shift and still will not say why it matters. The podcast ends, and he leaves tea outside her door.
+Tarek counts forty-one days so the line will mean he is going somewhere. The noise stops. He leaves tea by her closed door.
 
-Tarek is fictional, in his early twenties, and shares a small apartment with his younger sister, Nadia. She is fictional too. She never appears and she never thanks him. The door stays closed. Neither face is a real person's likeness. The consent record is in `docs/ETHICS.md`.
+Tarek is fictional, in his early twenties, medium olive-brown skin, in a black hoodie. He shares a small apartment with his younger sister, Nadia. She is fictional too. She never appears and she never thanks him. The door stays closed. He stays inside one room. The room is dim, leaning dark, and a little disordered. His face stays resting: lips closed, not a smile, not grief. Neither face is a real person's likeness. The consent record is in `docs/ETHICS.md`.
 
-Narration is English, in short clauses, spoken by the Schedar voice: dry, low, and unsentimental. The word "absurd" is never spoken. The burned-in subtitles are the same English lines. Two shots in the middle are room tone only, so the silence can be heard. Subjects sit in the center of the 9:16 frame so the 16:9 crop still holds them. The film does not end on a smile, a sunrise that redeems him, or Nadia opening the door.
+Narration is English, spoken by Schedar: dry, low, and unsentimental. Each spoken line has a short breath before it and about a second after it, so one sentence does not step on the next. The word "absurd" is never spoken. The burned-in subtitles are the same English lines. Shots 03, 06, and 09 are room tone only. The film opens on a short black hold and closes on the same hold, then the "Made with AI" card. The 9:16 file is the full figure. The 16:9 file is the same moments recomposed so the room fills a landscape frame. The film does not end on a smile, a sunrise that redeems him, or Nadia opening the door.
 
 | Shot | Beat | What the audience sees | Narration | Why the shot exists |
 | --- | --- | --- | --- | --- |
-| 01 | Diversion | Close-up of Tarek's thumb on a habit tracker in a dim room. The streak count is visible. | "Forty-one days. ... Checked. The app said that was a person." | He is trying to become someone whose counted days add up. |
-| 02 | Diversion | Medium shot of Tarek in earbuds, pacing a narrow hallway. | "A man in my ear. The morning is yours. Take it. ... I kept walking." | The talk promises that the morning can be owned. |
-| 03 | Diversion | A timer counting down, and water filled exactly to a line on a glass. | "Water to the line. Two minutes. Then I would be ready. ... Ready for what." | Living has been turned into a measurement. |
-| 04 | Diversion | He steps past Nadia's work shoes and does not look down. | "Her shift is at five. I wrote it down. ... I did not write why it matters." | He can record her shift and still refuse to face why it matters. |
-| 05 | Silence | The episode ends. An earbud hangs. The fridge hums. A bus passes outside. | "He was still talking. The episode ended. The fridge did not." | The world continues the moment without him. |
-| 06 | Silence | Tarek stands still at the kitchen counter, hands empty. | None. Room tone only. | The want for a reason is left with nothing to do. |
-| 07 | Silence | Grey early light. A clock reads five. | None. Room tone only. | The clock is no longer his tool. Her shift will come anyway. |
-| 08 | Turn | He looks from his empty hands to her closed door. No light under it. | "Her shift starts. Whether I understand my life. ... Or not." | What he can do is smaller than what he feels. |
-| 09 | Turn | The next episode is waiting. His hand leaves the phone. | "The next one was waiting. I could put the earbud back. ... I didn't." | He refuses the diversion. Nothing is solved. |
-| 10 | Light | The kettle heats. He pours tea into a plain mug. His face stays ordinary. | "The water boiled. The way it boils. ... Any other night." | The care is real, and the water does not care. |
-| 11 | Light | He sets the mug outside the closed door and does not knock. | "She will drink it. Or she will not. ... I left it there." | He continues without a witness and without a reward. |
+| 01 | Diversion | Inside the dim room, his phone shows a streak of 41. | "Forty-one days without missing. You tell yourself you're going." | He is trying to turn counted days into proof of direction. |
+| 02 | Diversion | Earbuds in, still inside the room. | "If another voice is loud enough, you don't have to hear your own." | Noise is used to crowd out quiet thought. |
+| 03 | Diversion | A timer and a glass filled to a line. | None. Timer and water only. | Living is treated as an exact measurement. |
+| 04 | Diversion | He steps past her shoes and does not look down. | "People you love get filed as tasks. Five a.m. Alarm set. Done." | A person's morning is reduced to a scheduling entry. |
+| 05 | Silence | The earbud hangs. He is still in the room. | "Then the track runs out. And the room is just... there." | When the noise stops, the bare room remains. |
+| 06 | Silence | He stands still, hands empty. | None. Room tone only. | The want for a reason is left with nothing to do. |
+| 07 | Silence | The clock reads five. The window stays dark. | "You wait for morning to matter. It doesn't. It's just light." | The morning arrives with no meaning attached to it. |
+| 08 | Turn | He looks from his empty hands to her closed door. | "Nobody's coming to explain it. She still has to be up by six." | Without an outside answer, care for another person still matters. |
+| 09 | Turn | His hand leaves the phone. | None. The hand leaves the phone. | He steps away from the diversion without announcing it. |
+| 10 | Light | He pours tea. His face stays ordinary. | "It doesn't fix anything. Tomorrow the earbuds go back in." | He knows the care does not fix the morning, and he does it anyway. |
+| 11 | Light | He sets the mug by the closed door and does not knock. | "Still. The tea is hot. She's right behind that door." | A small act of care, with the door still closed. |
 
 ## User tests
 

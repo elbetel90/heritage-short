@@ -9,6 +9,7 @@
     "intent",
     "style_block",
     "characters",
+    "references",
     "ethics",
     "voice",
     "music",
@@ -17,6 +18,8 @@
     "shots"
   ],
   "properties": {
+    "intro": {"$ref": "#/definitions/hold"},
+    "outro": {"$ref": "#/definitions/hold"},
     "logline": {"type": "string", "minLength": 1},
     "language": {"type": "string", "const": "en"},
     "audience": {"type": "string", "minLength": 1},
@@ -35,7 +38,24 @@
           "reference_ids": {
             "type": "array",
             "items": {"type": "string"}
-          }
+          },
+          "golden_id": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "role", "prompt", "seed"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "role": {"type": "string", "enum": ["view", "expression", "frame"]},
+          "prompt": {"type": "string", "minLength": 1},
+          "seed": {"type": "integer"}
         }
       }
     },
@@ -114,6 +134,14 @@
     }
   },
   "definitions": {
+    "hold": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["duration_sec"],
+      "properties": {
+        "duration_sec": {"type": "number", "minimum": 0.01}
+      }
+    },
     "shot": {
       "type": "object",
       "additionalProperties": false,
@@ -143,7 +171,8 @@
             "lang": {"type": "string", "const": "en"},
             "subtitle_en": {"type": "string"},
             "delivery": {"type": "string"},
-            "lead_in_sec": {"type": "number", "minimum": 0}
+            "lead_in_sec": {"type": "number", "minimum": 0},
+            "tail_sec": {"type": "number", "minimum": 0}
           }
         },
         "image": {

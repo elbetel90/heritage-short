@@ -1,14 +1,35 @@
 {
-  "logline": "Tarek counts his nights so they will finally mean something. He writes down his sister's shift and still will not say why it matters. The podcast ends, and he leaves tea outside her door.",
+  "logline": "Tarek counts forty-one days so the line will mean he is going somewhere. The noise stops. He leaves tea by her closed door.",
   "language": "en",
   "audience": "People about 16 to 35 who feel that their days are unanswered, watching on a phone.",
   "intent": "The silence stays. He leaves tea for someone who will not thank him.",
-  "style_block": "Dim rented apartment before dawn, warm practical light, muted colors, ordinary and unglamorous, 35mm film grain, subjects centered in a vertical frame.",
+  "style_block": "A small rented room before dawn, dim and leaning dark, one weak lamp, no daylight, muted grey-brown, a little disordered, ordinary and unglamorous, 35mm film grain, subjects centered in a vertical frame.",
   "characters": [
     {
       "id": "tarek",
-      "description": "Fictional man in his early twenties with a tired ordinary face, short dark hair, and a plain dark t-shirt. Not a likeness of any real person.",
-      "reference_ids": []
+      "description": "Fictional man in his early twenties with medium olive-brown skin, a tired ordinary face, short dark hair, and a black hoodie. Not pale, not deep black skin. Lips closed, resting, not smiling, not excited, not grieving. Not a likeness of any real person.",
+      "reference_ids": [],
+      "golden_id": "tarek-view"
+    }
+  ],
+  "references": [
+    {
+      "id": "tarek-view",
+      "role": "view",
+      "prompt": "Front view, head and shoulders, looking at the camera. Medium olive-brown skin, black hoodie, lips closed, resting, not smiling. Dim room, one weak lamp. Centered. No text, no logo.",
+      "seed": 2101
+    },
+    {
+      "id": "tarek-expression",
+      "role": "expression",
+      "prompt": "Close view of the same face, awake, lips closed, no smile, no tears, no frown. Medium olive-brown skin, black hoodie. Centered. No text.",
+      "seed": 2102
+    },
+    {
+      "id": "tarek-frame",
+      "role": "frame",
+      "prompt": "Full figure standing still inside a small dim room before dawn, black hoodie, hands at his sides, lips closed, not smiling. The room is a little disordered: a jacket on a chair, a few dishes, papers on the table. One weak lamp, no daylight, no hallway. Centered in a vertical frame. No text.",
+      "seed": 2103
     }
   ],
   "ethics": {
@@ -17,7 +38,7 @@
   },
   "voice": {
     "name": "Schedar",
-    "style": "Dry, measured, low-register restraint. Spoken quietly as an internal realization rather than a performance. Tired, lucid, unsentimental, with heavy pauses between thoughts."
+    "style": "Dry, measured, low-register restraint. Spoken quietly as an internal realization rather than a performance. Tired, lucid, unsentimental, with a breath between thoughts."
   },
   "music": {
     "caption": "Low instrumental bed in D minor at 60 bpm. Sustained strings and a soft drone, no vocals, no drums, no bright melody, and no hopeful ending. Quiet under a spoken voice, and audible in the long silences.",
@@ -25,8 +46,12 @@
     "bpm": 60,
     "key": "D minor",
     "duration_sec": 96,
-    "candidate_seeds": [11, 22, 33],
-    "chosen_id": null
+    "candidate_seeds": [
+      11,
+      22,
+      33
+    ],
+    "chosen_id": "seed-22"
   },
   "mix": {
     "duck": {
@@ -38,6 +63,12 @@
     "loudness_lufs": -14,
     "true_peak_db": -1
   },
+  "intro": {
+    "duration_sec": 1.2
+  },
+  "outro": {
+    "duration_sec": 1.2
+  },
   "end_card": {
     "text": "Made with AI",
     "duration_sec": 2.5
@@ -46,18 +77,19 @@
     {
       "id": "s01",
       "beat": "diversion",
-      "reason": "He is trying to become someone whose counted days add up.",
-      "duration_sec": 7.11,
+      "reason": "He is trying to turn counted days into proof of direction.",
+      "duration_sec": 4.35,
       "narration": {
-        "text": "Forty-one days. ... Checked. The app said that was a person.",
+        "text": "Forty-one days without missing. You tell yourself you're going.",
         "lang": "en",
-        "subtitle_en": "Forty-one days. Checked.\nThe app said that was a person.",
-        "delivery": "Measured, matter-of-fact, steady. Unhurried, with a quiet moment before the first word.",
-        "lead_in_sec": 0.6
+        "subtitle_en": "Forty-one days without missing.\nYou tell yourself you're going.",
+        "delivery": "Slightly brisk, matter-of-fact, like reciting a routine. A short breath before the first word.",
+        "lead_in_sec": 0.4,
+        "tail_sec": 0.9
       },
       "image": {
-        "prompt": "Close-up of a thumb on a phone habit tracker in a dim room. The streak count reads forty-one. The phone is centered.",
-        "seed": 1001,
+        "prompt": "He stays inside one dim room and holds one phone at his chest in his right hand. The screen reads 41. His left arm hangs at his side. A few papers and a mug sit on the table. Black hoodie, lips closed, face visible. No second person. No hand enters from the edge.",
+        "seed": 1301,
         "reference_ids": []
       },
       "motion": {
@@ -71,22 +103,24 @@
     {
       "id": "s02",
       "beat": "diversion",
-      "reason": "The talk promises that the morning can be owned.",
-      "duration_sec": 7.12,
+      "reason": "Noise is used to crowd out quiet thought.",
+      "duration_sec": 4.37,
       "narration": {
-        "text": "A man in my ear. The morning is yours. Take it. ... I kept walking.",
+        "text": "If another voice is loud enough, you don't have to hear your own.",
         "lang": "en",
-        "subtitle_en": "A man in my ear. The morning is yours.\nTake it. I kept walking.",
-        "delivery": "Measured, matter-of-fact, steady. Like reciting a routine by muscle memory."
+        "subtitle_en": "If another voice is loud enough,\nyou don't have to hear your own.",
+        "delivery": "Slightly brisk, matter-of-fact, like reciting a routine. Leave a breath after the last word.",
+        "lead_in_sec": 0.4,
+        "tail_sec": 0.9
       },
       "image": {
-        "prompt": "Medium shot in a narrow apartment hallway. Earbuds in. He is mid-pace. Centered in the vertical frame.",
-        "seed": 1002,
+        "prompt": "He stands inside the same dim room with white earbuds in both ears. One foot is slightly forward. A jacket hangs on a chair. A closed door is behind him. Black hoodie, lips closed. No hallway, no outdoors.",
+        "seed": 1302,
         "reference_ids": []
       },
       "motion": {
         "mode": "i2v",
-        "prompt": "He takes two slow steps. The camera drifts with him.",
+        "prompt": "He shifts his weight once. The camera stays inside the room.",
         "seed": 1002,
         "fallback": "kenburns",
         "resolution": "480p"
@@ -95,17 +129,17 @@
     {
       "id": "s03",
       "beat": "diversion",
-      "reason": "Living has been turned into a measurement.",
-      "duration_sec": 7.99,
+      "reason": "Living is treated as an exact measurement.",
+      "duration_sec": 11.02,
       "narration": {
-        "text": "Water to the line. Two minutes. Then I would be ready. ... Ready for what.",
+        "text": "",
         "lang": "en",
-        "subtitle_en": "Water to the line. Two minutes.\nThen ready. Ready for what.",
-        "delivery": "Measured, matter-of-fact, steady. Like reciting a routine by muscle memory."
+        "subtitle_en": "",
+        "delivery": "No speech. Timer and water only."
       },
       "image": {
-        "prompt": "Tight detail of a kitchen timer counting down beside a glass filled exactly to a marked line.",
-        "seed": 1003,
+        "prompt": "Inside the same dim room, a kitchen timer counts down beside a glass filled to a marked line. A few dishes sit nearby. His hand in a black hoodie sleeve rests by the glass. No outdoor view.",
+        "seed": 1303,
         "reference_ids": []
       },
       "motion": {
@@ -119,22 +153,24 @@
     {
       "id": "s04",
       "beat": "diversion",
-      "reason": "He can record her shift and still refuse to face why it matters.",
-      "duration_sec": 7.16,
+      "reason": "A person's morning is reduced to a scheduling entry.",
+      "duration_sec": 7.75,
       "narration": {
-        "text": "Her shift is at five. I wrote it down. ... I did not write why it matters.",
+        "text": "People you love get filed as tasks. Five a.m. Alarm set. Done.",
         "lang": "en",
-        "subtitle_en": "Her shift is at five. I wrote it down.\nI did not write why it matters.",
-        "delivery": "Measured, matter-of-fact, steady. The last clause slows and drops."
+        "subtitle_en": "People you love, filed as tasks.\nFive a.m. Alarm set. Done.",
+        "delivery": "Flat, clipped, like reading a checklist. A breath after Done.",
+        "lead_in_sec": 0.4,
+        "tail_sec": 0.9
       },
       "image": {
-        "prompt": "He steps past a pair of plain work shoes by a closed door and does not look down. A phone note with a time is in his hand. Centered.",
-        "seed": 1004,
+        "prompt": "He stands inside the room beside a closed door. Plain dark work shoes are on the floor. He does not look down. A phone is in one hand. A little clutter by the door. Black hoodie, lips closed. No hallway.",
+        "seed": 1304,
         "reference_ids": []
       },
       "motion": {
         "mode": "i2v",
-        "prompt": "He steps past the shoes. The camera stays with his feet, then holds.",
+        "prompt": "He steps past the shoes inside the room. The camera stays with him.",
         "seed": 1004,
         "fallback": "kenburns",
         "resolution": "480p"
@@ -143,17 +179,19 @@
     {
       "id": "s05",
       "beat": "silence",
-      "reason": "The world continues the moment without him.",
-      "duration_sec": 5.66,
+      "reason": "When the noise stops, the bare room remains.",
+      "duration_sec": 6.81,
       "narration": {
-        "text": "He was still talking. The episode ended. The fridge did not.",
+        "text": "Then the track runs out. And the room is just... there.",
         "lang": "en",
-        "subtitle_en": "He was still talking.\nThe episode ended. The fridge did not.",
-        "delivery": "Flat and quiet, at the same pace as the lines before. No gasp and no heavy breath."
+        "subtitle_en": "Then the track runs out.\nAnd the room is just... there.",
+        "delivery": "Flat, quiet, almost a whisper. Pause after the first sentence. No gasp.",
+        "lead_in_sec": 0.4,
+        "tail_sec": 0.9
       },
       "image": {
-        "prompt": "One earbud hangs from an ear. A fridge hums in a dim kitchen. A bus is passing outside the window.",
-        "seed": 1005,
+        "prompt": "One earbud hangs from one ear. He is still inside the dim room. The fridge is behind him. The window is dark. A few dishes on the counter. Black hoodie, lips closed. No street, no bus.",
+        "seed": 1305,
         "reference_ids": []
       },
       "motion": {
@@ -168,7 +206,7 @@
       "id": "s06",
       "beat": "silence",
       "reason": "The want for a reason is left with nothing to do.",
-      "duration_sec": 13.85,
+      "duration_sec": 11.02,
       "narration": {
         "text": "",
         "lang": "en",
@@ -176,8 +214,8 @@
         "delivery": "No speech. Room tone only."
       },
       "image": {
-        "prompt": "He stands still at a kitchen counter, hands empty, no phone in frame. Centered.",
-        "seed": 1006,
+        "prompt": "He stands still inside the dim room, both hands empty, no phone. The counter is a little untidy. Black hoodie, lips closed, resting face. One weak lamp.",
+        "seed": 1306,
         "reference_ids": []
       },
       "motion": {
@@ -191,17 +229,19 @@
     {
       "id": "s07",
       "beat": "silence",
-      "reason": "The clock is no longer his tool. Her shift will come anyway.",
-      "duration_sec": 13.85,
+      "reason": "The morning arrives with no meaning attached to it.",
+      "duration_sec": 7.56,
       "narration": {
-        "text": "",
+        "text": "You wait for morning to matter. It doesn't. It's just light.",
         "lang": "en",
-        "subtitle_en": "",
-        "delivery": "No speech. Room tone only."
+        "subtitle_en": "You wait for morning to matter.\nIt doesn't. It's just light.",
+        "delivery": "Quiet, flat, unsentimental. No dramatic drop on the last word. A breath after it.",
+        "lead_in_sec": 0.4,
+        "tail_sec": 0.9
       },
       "image": {
-        "prompt": "Grey early light through a window. A wall clock reads five. The street outside is empty of anyone waiting.",
-        "seed": 1007,
+        "prompt": "He stands inside the dim room near a dark window. A wall clock reads five. Grey light only, leaning dark. A chair with a jacket. Black hoodie, lips closed.",
+        "seed": 1307,
         "reference_ids": []
       },
       "motion": {
@@ -215,17 +255,19 @@
     {
       "id": "s08",
       "beat": "turn",
-      "reason": "What he can do is smaller than what he feels.",
-      "duration_sec": 6.44,
+      "reason": "Without an outside answer, care for another person still matters.",
+      "duration_sec": 5.84,
       "narration": {
-        "text": "Her shift starts. Whether I understand my life. ... Or not.",
+        "text": "Nobody's coming to explain it. She still has to be up by six.",
         "lang": "en",
-        "subtitle_en": "Her shift starts.\nWhether I understand my life or not.",
-        "delivery": "Grounded, sober, steady. No sadness, just clear-eyed acceptance."
+        "subtitle_en": "Nobody's coming to explain it.\nShe still has to be up by six.",
+        "delivery": "Grounded, sober, steady. Clear-eyed, without melodrama. A breath between the two sentences.",
+        "lead_in_sec": 0.4,
+        "tail_sec": 0.9
       },
       "image": {
-        "prompt": "He looks from his empty hands on the counter toward a closed bedroom door down the hall. No light under the door.",
-        "seed": 1008,
+        "prompt": "He looks from his empty hands toward a closed door inside the same room. No light under the door. A little clutter on the counter. Black hoodie, lips closed.",
+        "seed": 1308,
         "reference_ids": []
       },
       "motion": {
@@ -239,17 +281,17 @@
     {
       "id": "s09",
       "beat": "turn",
-      "reason": "He refuses the diversion. Nothing is solved.",
-      "duration_sec": 5.44,
+      "reason": "He steps away from the diversion without announcing it.",
+      "duration_sec": 11.02,
       "narration": {
-        "text": "The next one was waiting. I could put the earbud back. ... I didn't.",
+        "text": "",
         "lang": "en",
-        "subtitle_en": "The next one was waiting.\nI could put the earbud back. I didn't.",
-        "delivery": "Grounded, sober, steady. No sadness, just clear-eyed acceptance."
+        "subtitle_en": "",
+        "delivery": "No speech. His hand leaves the phone."
       },
       "image": {
-        "prompt": "A phone lies on the counter with another episode ready. His hand hovers, then leaves it. A timer and a paper checklist sit beside the phone.",
-        "seed": 1009,
+        "prompt": "A phone lies on the untidy counter inside the room, screen still lit. His hand has left it. Black hoodie, lips closed. He stays in the room.",
+        "seed": 1309,
         "reference_ids": []
       },
       "motion": {
@@ -263,22 +305,24 @@
     {
       "id": "s10",
       "beat": "light",
-      "reason": "The care is real, and the water does not care.",
-      "duration_sec": 5.0,
+      "reason": "He knows the care does not fix the morning, and he does it anyway.",
+      "duration_sec": 7.06,
       "narration": {
-        "text": "The water boiled. The way it boils. ... Any other night.",
+        "text": "It doesn't fix anything. Tomorrow the earbuds go back in.",
         "lang": "en",
-        "subtitle_en": "The water boiled. The way it boils.\nAny other night.",
-        "delivery": "Soft, unhurried, intimate. Quiet, without sentimentality."
+        "subtitle_en": "It doesn't fix anything.\nTomorrow the earbuds go back in.",
+        "delivery": "Soft, unhurried, slightly wry and dry. Honest, without defeat. A breath after the last word.",
+        "lead_in_sec": 0.4,
+        "tail_sec": 0.9
       },
       "image": {
-        "prompt": "A plain kettle heats on a small stove. He pours tea into a plain mug. His face stays ordinary, not smiling.",
-        "seed": 1010,
+        "prompt": "Inside the dim room, a plain kettle heats on a small stove. He pours tea into a plain mug. The counter is a little untidy. Black hoodie, lips closed, face ordinary, not smiling.",
+        "seed": 1310,
         "reference_ids": []
       },
       "motion": {
         "mode": "i2v",
-        "prompt": "Steam rises. He pours slowly. The camera pushes in slightly.",
+        "prompt": "Steam rises. He pours slowly. The camera stays inside the room.",
         "seed": 1010,
         "fallback": "kenburns",
         "resolution": "480p"
@@ -287,17 +331,19 @@
     {
       "id": "s11",
       "beat": "light",
-      "reason": "He continues without a witness and without a reward.",
-      "duration_sec": 5.89,
+      "reason": "A small act of care, with the door still closed.",
+      "duration_sec": 6.29,
       "narration": {
-        "text": "She will drink it. Or she will not. ... I left it there.",
+        "text": "Still. The tea is hot. She's right behind that door.",
         "lang": "en",
-        "subtitle_en": "She will drink it. Or she will not.\nI left it there.",
-        "delivery": "Soft, unhurried, intimate. Quiet, without sentimentality. The last words are almost private."
+        "subtitle_en": "Still. The tea is hot.\nShe's right behind that door.",
+        "delivery": "Soft, unhurried, quiet. Warmth without sentimentality. A breath after the last word.",
+        "lead_in_sec": 0.4,
+        "tail_sec": 0.9
       },
       "image": {
-        "prompt": "A plain mug of tea sits on a small mat outside a closed bedroom door. He stands in the quiet hall. The door stays shut. Steam rises.",
-        "seed": 1011,
+        "prompt": "He sets a plain mug of tea on the floor beside a closed door, still inside the room. He does not knock. The door stays shut. A little clutter nearby. Black hoodie, lips closed.",
+        "seed": 1311,
         "reference_ids": []
       },
       "motion": {
