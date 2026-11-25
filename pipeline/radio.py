@@ -39,83 +39,108 @@ def probe(path):
     return json.loads(result.stdout.decode("utf-8"))
 
 
-def assemble(shots, wav_paths, output_path, work_dir, end_card_sec=None):
+def _encode_segment(segment, duration, voice_path, bed_path, bed_offset, duck, voice):
+    color = "color=c=black:s=%dx%d:r=24:d=%s" % (WIDTH, HEIGHT, duration)
+    command = ["ffmpeg", "-y", "-f", "lavfi", "-i", color]
+    if voice:
+        command.extend(["-i", str(voice_path)])
+    if bed_path:
+        command.extend(["-i", str(bed_path)])
+        audio = _bed_filter(duration, bed_offset, duck, voice)
+    else:
+        command.extend(
+            [
+                "-f",
+                "lavfi",
+                "-i",
+                "sine=frequency=110:sample_rate=48000:duration=%s" % duration,
+            ]
+        )
+        audio = _placeholder_filter(duration, voice)
+    command.extend(
+        [
+            "-filter_complex",
+            audio,
+            "-map",
+            "0:v",
+            "-map",
+            "[a]",
+            "-c:v",
+            "libx264",
+            "-pix_fmt",
+            "yuv420p",
+            "-c:a",
+            "aac",
+            "-ac",
+            "2",
+            str(segment),
+        ]
+    )
+    _run(command)
+
+
+def _placeholder_filter(duration, voice):
+    if not voice:
+        return "[1:a]volume=0.03[a]"
+    return (
+        "[1:a]apad=whole_dur=%s,atrim=0:%s[voice];"
+        "[2:a]volume=0.03[bed];"
+        "[voice][bed]amix=inputs=2:duration=first:dropout_transition=0[a]"
+        % (duration, duration)
+    )
+
+
+def _bed_filter(duration, bed_offset, duck, voice):
+    duck = duck or {}
+    start = float(bed_offset)
+    end = start + float(duration)
+    if not voice:
+        return "[1:a]atrim=%s:%s,asetpts=PTS-STARTPTS,apad=whole_dur=%s[a]" % (start, end, duration)
+    return (
+        "[2:a]atrim=%s:%s,asetpts=PTS-STARTPTS,apad=whole_dur=%s[bed];"
+        "[1:a]apad=whole_dur=%s,atrim=0:%s,asplit=2[voice][sc];"
+        "[bed][sc]sidechaincompress=threshold=%s:ratio=%s:attack=%s:release=%s[ducked];"
+        "[voice][ducked]amix=inputs=2:duration=first:dropout_transition=0[a]"
+        % (
+            start,
+            end,
+            duration,
+            duration,
+            duration,
+            duck.get("threshold", 0.02),
+            duck.get("ratio", 6),
+            duck.get("attack_ms", 300),
+            duck.get("release_ms", 1500),
+        )
+    )
+
+
+def assemble(shots, wav_paths, output_path, work_dir, end_card_sec=None, bed_path=None, duck=None):
     """Build a black 9:16 MP4 from per-shot wavs. Returns the probed duration."""
     work_dir = Path(work_dir)
     work_dir.mkdir(parents=True, exist_ok=True)
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     segments = []
+    offset = 0.0
     for shot in shots:
         shot_id = shot["id"]
         duration = float(shot["duration_sec"])
         segment = work_dir / (shot_id + ".mp4")
-        _run(
-            [
-                "ffmpeg",
-                "-y",
-                "-f",
-                "lavfi",
-                "-i",
-                "color=c=black:s=%dx%d:r=24:d=%s" % (WIDTH, HEIGHT, duration),
-                "-i",
-                str(wav_paths[shot_id]),
-                "-f",
-                "lavfi",
-                "-i",
-                "sine=frequency=110:sample_rate=48000:duration=%s" % duration,
-                "-filter_complex",
-                "[1:a]apad=whole_dur=%s,atrim=0:%s[voice];"
-                "[2:a]volume=0.03[bed];"
-                "[voice][bed]amix=inputs=2:duration=first:dropout_transition=0[a]"
-                % (duration, duration),
-                "-map",
-                "0:v",
-                "-map",
-                "[a]",
-                "-c:v",
-                "libx264",
-                "-pix_fmt",
-                "yuv420p",
-                "-c:a",
-                "aac",
-                "-ac",
-                "2",
-                str(segment),
-            ]
+        _encode_segment(
+            segment,
+            duration,
+            wav_paths[shot_id],
+            bed_path,
+            offset,
+            duck,
+            voice=True,
         )
         segments.append(segment)
+        offset += duration
     if end_card_sec:
         segment = work_dir / "endcard.mp4"
-        _run(
-            [
-                "ffmpeg",
-                "-y",
-                "-f",
-                "lavfi",
-                "-i",
-                "color=c=black:s=%dx%d:r=24:d=%s" % (WIDTH, HEIGHT, end_card_sec),
-                "-f",
-                "lavfi",
-                "-i",
-                "sine=frequency=110:sample_rate=48000:duration=%s" % end_card_sec,
-                "-filter_complex",
-                "[1:a]volume=0.03[a]",
-                "-map",
-                "0:v",
-                "-map",
-                "[a]",
-                "-c:v",
-                "libx264",
-                "-pix_fmt",
-                "yuv420p",
-                "-c:a",
-                "aac",
-                "-ac",
-                "2",
-                str(segment),
-            ]
-        )
+        _encode_segment(segment, float(end_card_sec), None, bed_path, offset, duck, voice=False)
         segments.append(segment)
     listing = work_dir / "concat.txt"
     listing.write_text(

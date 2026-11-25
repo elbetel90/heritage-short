@@ -20,14 +20,12 @@
     "style": "Dry, measured, low-register restraint. Spoken quietly as an internal realization rather than a performance. Tired, lucid, unsentimental, with heavy pauses between thoughts."
   },
   "music": {
-    "caption": "Quiet low tone under narration. No melody, no vocals. Placeholder bed only.",
+    "caption": "Low instrumental bed in D minor at 60 bpm. Sustained strings and a soft drone, no vocals, no drums, no bright melody, and no hopeful ending. Quiet under a spoken voice, and audible in the long silences.",
     "instrumental": true,
     "bpm": 60,
     "key": "D minor",
-    "duration_sec": 88,
-    "candidate_seeds": [
-      1
-    ],
+    "duration_sec": 96,
+    "candidate_seeds": [11, 22, 33],
     "chosen_id": null
   },
   "mix": {

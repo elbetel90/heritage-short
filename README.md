@@ -15,7 +15,14 @@ make smoke
 make radio
 ```
 
-`make radio` validates `storyboard.json`, speaks the English lines, and writes `outputs/radio/radio-cut.mp4` (black picture, voice, quiet tone). `make film`, which adds pictures, moving shots, and the score, is not implemented yet.
+`make radio` validates `storyboard.json`, speaks the English lines, and writes `outputs/radio/radio-cut.mp4` (black picture, voice, quiet tone). The score is generated on Kaggle with `kaggle/score.py`, then ingested and mixed locally:
+
+```bash
+python3 -m pipeline.music ingest 11 ~/Downloads/seed-11.wav
+python3 -m pipeline.music mix
+```
+
+`mix` reads `music.chosen_id` and writes `outputs/radio/radio-score.mp4`. `make film`, which adds pictures and the moving shots, is not implemented yet.
 
 ## Setup
 
