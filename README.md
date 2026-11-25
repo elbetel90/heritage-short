@@ -22,7 +22,27 @@ python3 -m pipeline.music ingest 11 ~/Downloads/seed-11.wav
 python3 -m pipeline.music mix
 ```
 
-`mix` reads `music.chosen_id` and writes `outputs/radio/radio-score.mp4`. `make film`, which adds pictures and the moving shots, is not implemented yet.
+`mix` reads `music.chosen_id` and writes `outputs/radio/radio-score.mp4`.
+
+Stills are Cloudflare calls from this machine, not a Kaggle session:
+
+```bash
+make references
+```
+
+That writes three PNGs in `outputs/references/`. Look at them, set `characters[0].golden_id` to the id you accept (`tarek-view`, `tarek-expression`, or `tarek-frame`), then:
+
+```bash
+make keyframes
+```
+
+That writes `outputs/keyframes/s01.png` through `s11.png`, each conditioned on the golden frame. `make keyframes` stops if `golden_id` is empty.
+
+```bash
+make film
+```
+
+`make film` pans each accepted still for its shot length, lays the spoken wavs on top, burns the English subtitles, and writes `outputs/final/film-9x16.mp4` and `film-16x9.mp4`. When `music.chosen_id` names a file in `outputs/music`, that bed is ducked under the voice. Otherwise the bed is the quiet placeholder. Run `make radio` first so the wavs exist.
 
 ## Setup
 
