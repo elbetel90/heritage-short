@@ -1,0 +1,79 @@
+{
+  "narration/s01": {
+    "input_hash": "a3cf3de12e6170be40e4de2f8749ea624410be1481c2f415831b9d4513a6a779",
+    "model": "gemini-3.8-flash-tts",
+    "output_path": "outputs/narration/s01.wav",
+    "seed": null,
+    "status": "ok"
+  },
+  "narration/s02": {
+    "input_hash": "8538aeed092a6b91413c53cac094bcf5dd9d2a92147ef7c98e140c02d613c736",
+    "model": "gemini-3.8-flash-tts",
+    "output_path": "outputs/narration/s02.wav",
+    "seed": null,
+    "status": "ok"
+  },
+  "narration/s03": {
+    "input_hash": "806bc225947eaae26d5edbe907a44e463b19371204aadf4008ee09f06e3e9a5c",
+    "model": "gemini-3.8-flash-tts",
+    "output_path": "outputs/narration/s03.wav",
+    "seed": null,
+    "status": "ok"
+  },
+  "narration/s04": {
+    "input_hash": "de9a55a2b9d347ad2d86e2905fc75b5e43884d186d01142a298c31a469542493",
+    "model": "gemini-3.8-flash-tts",
+    "output_path": "outputs/narration/s04.wav",
+    "seed": null,
+    "status": "ok"
+  },
+  "narration/s05": {
+    "input_hash": "712933c3ea4e055c336bc31c06fdb771f1a8044cf9a2a2a0744c69c10b8e0365",
+    "model": "gemini-3.8-flash-tts",
+    "output_path": "outputs/narration/s05.wav",
+    "seed": null,
+    "status": "ok"
+  },
+  "narration/s06": {
+    "input_hash": "2c7b2aa7b6d645592951e79afa58b13df511a2031f918a8d821ac97c2a833244",
+    "model": "silence",
+    "output_path": "outputs/narration/s06.wav",
+    "seed": null,
+    "status": "ok"
+  },
+  "narration/s07": {
+    "input_hash": "2c7b2aa7b6d645592951e79afa58b13df511a2031f918a8d821ac97c2a833244",
+    "model": "silence",
+    "output_path": "outputs/narration/s07.wav",
+    "seed": null,
+    "status": "ok"
+  },
+  "narration/s08": {
+    "input_hash": "4b4b9397ff2756d5b0372b73dca37f21048caefceb548ad0486357104fd16064",
+    "model": "gemini-3.8-flash-tts",
+    "output_path": "outputs/narration/s08.wav",
+    "seed": null,
+    "status": "ok"
+  },
+  "narration/s09": {
+    "input_hash": "ce84faf01a6196f8f5b8fc796ba909058eb64f018bcce1047e91627198248dbd",
+    "model": "gemini-3.8-flash-tts",
+    "output_path": "outputs/narration/s09.wav",
+    "seed": null,
+    "status": "ok"
+  },
+  "narration/s10": {
+    "input_hash": "5945b8ba0f803ecfc093179e67b5e2bab8b194b32a1ea42c05364031957c73d8",
+    "model": "gemini-3.8-flash-tts",
+    "output_path": "outputs/narration/s10.wav",
+    "seed": null,
+    "status": "ok"
+  },
+  "narration/s11": {
+    "input_hash": "9f22510c01eaa72369222591c4941b60906f584df47d10d5f7837f623948f5b0",
+    "model": "gemini-3.8-flash-tts",
+    "output_path": "outputs/narration/s11.wav",
+    "seed": null,
+    "status": "ok"
+  }
+}

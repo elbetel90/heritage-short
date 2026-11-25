@@ -1,0 +1,312 @@
+{
+  "logline": "Tarek counts his nights so they will finally mean something. He writes down his sister's shift and still will not say why it matters. The podcast ends, and he leaves tea outside her door.",
+  "language": "en",
+  "audience": "People about 16 to 35 who feel that their days are unanswered, watching on a phone.",
+  "intent": "The silence stays. He leaves tea for someone who will not thank him.",
+  "style_block": "Dim rented apartment before dawn, warm practical light, muted colors, ordinary and unglamorous, 35mm film grain, subjects centered in a vertical frame.",
+  "characters": [
+    {
+      "id": "tarek",
+      "description": "Fictional man in his early twenties with a tired ordinary face, short dark hair, and a plain dark t-shirt. Not a likeness of any real person.",
+      "reference_ids": []
+    }
+  ],
+  "ethics": {
+    "likeness": "fictional",
+    "real_people": []
+  },
+  "voice": {
+    "name": "Schedar",
+    "style": "Dry, measured, low-register restraint. Spoken quietly as an internal realization rather than a performance. Tired, lucid, unsentimental, with heavy pauses between thoughts."
+  },
+  "music": {
+    "caption": "Low instrumental bed in D minor at 60 bpm. Sustained strings and a soft drone, no vocals, no drums, no bright melody, and no hopeful ending. Quiet under a spoken voice, and audible in the long silences.",
+    "instrumental": true,
+    "bpm": 60,
+    "key": "D minor",
+    "duration_sec": 96,
+    "candidate_seeds": [11, 22, 33],
+    "chosen_id": null
+  },
+  "mix": {
+    "duck": {
+      "threshold": 0.02,
+      "ratio": 6,
+      "attack_ms": 300,
+      "release_ms": 1500
+    },
+    "loudness_lufs": -14,
+    "true_peak_db": -1
+  },
+  "end_card": {
+    "text": "Made with AI",
+    "duration_sec": 2.5
+  },
+  "shots": [
+    {
+      "id": "s01",
+      "beat": "diversion",
+      "reason": "He is trying to become someone whose counted days add up.",
+      "duration_sec": 7.11,
+      "narration": {
+        "text": "Forty-one days. ... Checked. The app said that was a person.",
+        "lang": "en",
+        "subtitle_en": "Forty-one days. Checked.\nThe app said that was a person.",
+        "delivery": "Measured, matter-of-fact, steady. Unhurried, with a quiet moment before the first word.",
+        "lead_in_sec": 0.6
+      },
+      "image": {
+        "prompt": "Close-up of a thumb on a phone habit tracker in a dim room. The streak count reads forty-one. The phone is centered.",
+        "seed": 1001,
+        "reference_ids": []
+      },
+      "motion": {
+        "mode": "i2v",
+        "prompt": "The thumb taps once. The camera stays locked off.",
+        "seed": 1001,
+        "fallback": "kenburns",
+        "resolution": "480p"
+      }
+    },
+    {
+      "id": "s02",
+      "beat": "diversion",
+      "reason": "The talk promises that the morning can be owned.",
+      "duration_sec": 7.12,
+      "narration": {
+        "text": "A man in my ear. The morning is yours. Take it. ... I kept walking.",
+        "lang": "en",
+        "subtitle_en": "A man in my ear. The morning is yours.\nTake it. I kept walking.",
+        "delivery": "Measured, matter-of-fact, steady. Like reciting a routine by muscle memory."
+      },
+      "image": {
+        "prompt": "Medium shot in a narrow apartment hallway. Earbuds in. He is mid-pace. Centered in the vertical frame.",
+        "seed": 1002,
+        "reference_ids": []
+      },
+      "motion": {
+        "mode": "i2v",
+        "prompt": "He takes two slow steps. The camera drifts with him.",
+        "seed": 1002,
+        "fallback": "kenburns",
+        "resolution": "480p"
+      }
+    },
+    {
+      "id": "s03",
+      "beat": "diversion",
+      "reason": "Living has been turned into a measurement.",
+      "duration_sec": 7.99,
+      "narration": {
+        "text": "Water to the line. Two minutes. Then I would be ready. ... Ready for what.",
+        "lang": "en",
+        "subtitle_en": "Water to the line. Two minutes.\nThen ready. Ready for what.",
+        "delivery": "Measured, matter-of-fact, steady. Like reciting a routine by muscle memory."
+      },
+      "image": {
+        "prompt": "Tight detail of a kitchen timer counting down beside a glass filled exactly to a marked line.",
+        "seed": 1003,
+        "reference_ids": []
+      },
+      "motion": {
+        "mode": "i2v",
+        "prompt": "The timer ticks. The camera does not move.",
+        "seed": 1003,
+        "fallback": "kenburns",
+        "resolution": "480p"
+      }
+    },
+    {
+      "id": "s04",
+      "beat": "diversion",
+      "reason": "He can record her shift and still refuse to face why it matters.",
+      "duration_sec": 7.16,
+      "narration": {
+        "text": "Her shift is at five. I wrote it down. ... I did not write why it matters.",
+        "lang": "en",
+        "subtitle_en": "Her shift is at five. I wrote it down.\nI did not write why it matters.",
+        "delivery": "Measured, matter-of-fact, steady. The last clause slows and drops."
+      },
+      "image": {
+        "prompt": "He steps past a pair of plain work shoes by a closed door and does not look down. A phone note with a time is in his hand. Centered.",
+        "seed": 1004,
+        "reference_ids": []
+      },
+      "motion": {
+        "mode": "i2v",
+        "prompt": "He steps past the shoes. The camera stays with his feet, then holds.",
+        "seed": 1004,
+        "fallback": "kenburns",
+        "resolution": "480p"
+      }
+    },
+    {
+      "id": "s05",
+      "beat": "silence",
+      "reason": "The world continues the moment without him.",
+      "duration_sec": 5.66,
+      "narration": {
+        "text": "He was still talking. The episode ended. The fridge did not.",
+        "lang": "en",
+        "subtitle_en": "He was still talking.\nThe episode ended. The fridge did not.",
+        "delivery": "Flat and quiet, at the same pace as the lines before. No gasp and no heavy breath."
+      },
+      "image": {
+        "prompt": "One earbud hangs from an ear. A fridge hums in a dim kitchen. A bus is passing outside the window.",
+        "seed": 1005,
+        "reference_ids": []
+      },
+      "motion": {
+        "mode": "i2v",
+        "prompt": "The earbud sways once and stops. The camera stays still.",
+        "seed": 1005,
+        "fallback": "kenburns",
+        "resolution": "480p"
+      }
+    },
+    {
+      "id": "s06",
+      "beat": "silence",
+      "reason": "The want for a reason is left with nothing to do.",
+      "duration_sec": 13.85,
+      "narration": {
+        "text": "",
+        "lang": "en",
+        "subtitle_en": "",
+        "delivery": "No speech. Room tone only."
+      },
+      "image": {
+        "prompt": "He stands still at a kitchen counter, hands empty, no phone in frame. Centered.",
+        "seed": 1006,
+        "reference_ids": []
+      },
+      "motion": {
+        "mode": "i2v",
+        "prompt": "He barely breathes. The camera is locked off.",
+        "seed": 1006,
+        "fallback": "kenburns",
+        "resolution": "480p"
+      }
+    },
+    {
+      "id": "s07",
+      "beat": "silence",
+      "reason": "The clock is no longer his tool. Her shift will come anyway.",
+      "duration_sec": 13.85,
+      "narration": {
+        "text": "",
+        "lang": "en",
+        "subtitle_en": "",
+        "delivery": "No speech. Room tone only."
+      },
+      "image": {
+        "prompt": "Grey early light through a window. A wall clock reads five. The street outside is empty of anyone waiting.",
+        "seed": 1007,
+        "reference_ids": []
+      },
+      "motion": {
+        "mode": "i2v",
+        "prompt": "The second hand moves. The camera does not.",
+        "seed": 1007,
+        "fallback": "kenburns",
+        "resolution": "480p"
+      }
+    },
+    {
+      "id": "s08",
+      "beat": "turn",
+      "reason": "What he can do is smaller than what he feels.",
+      "duration_sec": 6.44,
+      "narration": {
+        "text": "Her shift starts. Whether I understand my life. ... Or not.",
+        "lang": "en",
+        "subtitle_en": "Her shift starts.\nWhether I understand my life or not.",
+        "delivery": "Grounded, sober, steady. No sadness, just clear-eyed acceptance."
+      },
+      "image": {
+        "prompt": "He looks from his empty hands on the counter toward a closed bedroom door down the hall. No light under the door.",
+        "seed": 1008,
+        "reference_ids": []
+      },
+      "motion": {
+        "mode": "i2v",
+        "prompt": "His gaze shifts from his hands to the closed door. The camera is still.",
+        "seed": 1008,
+        "fallback": "kenburns",
+        "resolution": "480p"
+      }
+    },
+    {
+      "id": "s09",
+      "beat": "turn",
+      "reason": "He refuses the diversion. Nothing is solved.",
+      "duration_sec": 5.44,
+      "narration": {
+        "text": "The next one was waiting. I could put the earbud back. ... I didn't.",
+        "lang": "en",
+        "subtitle_en": "The next one was waiting.\nI could put the earbud back. I didn't.",
+        "delivery": "Grounded, sober, steady. No sadness, just clear-eyed acceptance."
+      },
+      "image": {
+        "prompt": "A phone lies on the counter with another episode ready. His hand hovers, then leaves it. A timer and a paper checklist sit beside the phone.",
+        "seed": 1009,
+        "reference_ids": []
+      },
+      "motion": {
+        "mode": "i2v",
+        "prompt": "His hand pulls back from the phone. The camera stays locked off.",
+        "seed": 1009,
+        "fallback": "kenburns",
+        "resolution": "480p"
+      }
+    },
+    {
+      "id": "s10",
+      "beat": "light",
+      "reason": "The care is real, and the water does not care.",
+      "duration_sec": 5.0,
+      "narration": {
+        "text": "The water boiled. The way it boils. ... Any other night.",
+        "lang": "en",
+        "subtitle_en": "The water boiled. The way it boils.\nAny other night.",
+        "delivery": "Soft, unhurried, intimate. Quiet, without sentimentality."
+      },
+      "image": {
+        "prompt": "A plain kettle heats on a small stove. He pours tea into a plain mug. His face stays ordinary, not smiling.",
+        "seed": 1010,
+        "reference_ids": []
+      },
+      "motion": {
+        "mode": "i2v",
+        "prompt": "Steam rises. He pours slowly. The camera pushes in slightly.",
+        "seed": 1010,
+        "fallback": "kenburns",
+        "resolution": "480p"
+      }
+    },
+    {
+      "id": "s11",
+      "beat": "light",
+      "reason": "He continues without a witness and without a reward.",
+      "duration_sec": 5.89,
+      "narration": {
+        "text": "She will drink it. Or she will not. ... I left it there.",
+        "lang": "en",
+        "subtitle_en": "She will drink it. Or she will not.\nI left it there.",
+        "delivery": "Soft, unhurried, intimate. Quiet, without sentimentality. The last words are almost private."
+      },
+      "image": {
+        "prompt": "A plain mug of tea sits on a small mat outside a closed bedroom door. He stands in the quiet hall. The door stays shut. Steam rises.",
+        "seed": 1011,
+        "reference_ids": []
+      },
+      "motion": {
+        "mode": "i2v",
+        "prompt": "He sets the mug down, does not knock, and stays still. The camera holds on the closed door.",
+        "seed": 1011,
+        "fallback": "kenburns",
+        "resolution": "480p"
+      }
+    }
+  ]
+}

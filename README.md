@@ -6,13 +6,23 @@ The film is for the audience named in `docs/DESIGN.md`. Consent and licences are
 
 ## Run
 
-From a clean clone, the pipeline command will be:
+From a clean clone, after `.env` is filled in:
 
 ```bash
-make film
+make test
+make validate
+make smoke
+make radio
 ```
 
-That command is not implemented yet. This commit is the project scaffold.
+`make radio` validates `storyboard.json`, speaks the English lines, and writes `outputs/radio/radio-cut.mp4` (black picture, voice, quiet tone). The score is generated on Kaggle with `kaggle/score.py`, then ingested and mixed locally:
+
+```bash
+python3 -m pipeline.music ingest 11 ~/Downloads/seed-11.wav
+python3 -m pipeline.music mix
+```
+
+`mix` reads `music.chosen_id` and writes `outputs/radio/radio-score.mp4`. `make film`, which adds pictures and the moving shots, is not implemented yet.
 
 ## Setup
 
