@@ -4,3 +4,5 @@ __pycache__/
 .venv/
 *.pyc
 outputs/radio/work/
+outputs/final/work/
+outputs/radio/score-work/

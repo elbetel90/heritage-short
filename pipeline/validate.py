@@ -5,6 +5,7 @@ from pathlib import Path
 import jsonschema
 
 from pipeline.env import ROOT
+from pipeline.timing import bookend_sec
 
 SCHEMA_PATH = ROOT / "schema" / "storyboard.schema.json"
 STORYBOARD_PATH = ROOT / "storyboard.json"
@@ -48,7 +49,7 @@ def semantic_errors(storyboard):
     for shot in storyboard["shots"]:
         errors.extend(subtitle_errors(shot))
     total = sum(float(shot["duration_sec"]) for shot in storyboard["shots"])
-    total += float(storyboard["end_card"]["duration_sec"])
+    total += bookend_sec(storyboard)
     if not (DURATION_LOW <= total <= DURATION_HIGH):
         errors.append("total duration %.2fs is outside 60–90 seconds" % total)
     return errors
@@ -77,7 +78,7 @@ def main(argv=None):
             print(error, file=sys.stderr)
         return 1
     total = sum(float(shot["duration_sec"]) for shot in storyboard["shots"])
-    total += float(storyboard["end_card"]["duration_sec"])
+    total += bookend_sec(storyboard)
     print("storyboard ok (%.2fs)" % total)
     return 0
 

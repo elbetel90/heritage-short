@@ -14,7 +14,7 @@ def write_silence(path, duration_sec, rate=24000):
     return path
 
 
-def prepend_silence(path, duration_sec):
+def _pad(path, duration_sec, before):
     path = Path(path)
     with wave.open(str(path), "r") as handle:
         channels = handle.getnchannels()
@@ -27,8 +27,19 @@ def prepend_silence(path, duration_sec):
         handle.setnchannels(channels)
         handle.setsampwidth(width)
         handle.setframerate(rate)
-        handle.writeframes(silence + frames)
+        if before:
+            handle.writeframes(silence + frames)
+        else:
+            handle.writeframes(frames + silence)
     return path
+
+
+def prepend_silence(path, duration_sec):
+    return _pad(path, duration_sec, True)
+
+
+def append_silence(path, duration_sec):
+    return _pad(path, duration_sec, False)
 
 
 def wav_duration(path):

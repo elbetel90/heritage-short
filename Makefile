@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: test validate smoke radio score
+.PHONY: test validate smoke radio score references keyframes film
 
 test:
 	$(PYTHON) -m unittest discover -s tests -v
@@ -16,3 +16,12 @@ radio: validate
 
 score:
 	$(PYTHON) -m pipeline.music status
+
+references: validate
+	$(PYTHON) -m pipeline.references
+
+keyframes: validate
+	$(PYTHON) -m pipeline.keyframes
+
+film: validate
+	$(PYTHON) -m pipeline.film

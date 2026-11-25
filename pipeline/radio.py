@@ -6,7 +6,7 @@ from pathlib import Path
 from pipeline.audio import wav_duration
 from pipeline.env import ROOT
 from pipeline.narration import OUTPUT_DIR, render
-from pipeline.timing import DurationError, apply_measured_speech, fit_holds
+from pipeline.timing import DurationError, apply_measured_speech, block_sec, fit_holds
 from pipeline.validate import STORYBOARD_PATH, load_json, validate_storyboard
 
 RADIO_PATH = ROOT / "outputs" / "radio" / "radio-cut.mp4"
@@ -71,8 +71,12 @@ def _encode_segment(segment, duration, voice_path, bed_path, bed_offset, duck, v
             "yuv420p",
             "-c:a",
             "aac",
+            "-ar",
+            "48000",
             "-ac",
             "2",
+            "-t",
+            str(duration),
             str(segment),
         ]
     )
@@ -81,10 +85,10 @@ def _encode_segment(segment, duration, voice_path, bed_path, bed_offset, duck, v
 
 def _placeholder_filter(duration, voice):
     if not voice:
-        return "[1:a]volume=0.03[a]"
+        return "[1:a]aresample=48000,volume=0.03[a]"
     return (
-        "[1:a]apad=whole_dur=%s,atrim=0:%s[voice];"
-        "[2:a]volume=0.03[bed];"
+        "[1:a]aresample=48000,apad=whole_dur=%s,atrim=0:%s[voice];"
+        "[2:a]aresample=48000,volume=0.03[bed];"
         "[voice][bed]amix=inputs=2:duration=first:dropout_transition=0[a]"
         % (duration, duration)
     )
@@ -95,10 +99,13 @@ def _bed_filter(duration, bed_offset, duck, voice):
     start = float(bed_offset)
     end = start + float(duration)
     if not voice:
-        return "[1:a]atrim=%s:%s,asetpts=PTS-STARTPTS,apad=whole_dur=%s[a]" % (start, end, duration)
+        return (
+            "[1:a]atrim=%s:%s,asetpts=PTS-STARTPTS,aresample=48000,apad=whole_dur=%s[a]"
+            % (start, end, duration)
+        )
     return (
-        "[2:a]atrim=%s:%s,asetpts=PTS-STARTPTS,apad=whole_dur=%s[bed];"
-        "[1:a]apad=whole_dur=%s,atrim=0:%s,asplit=2[voice][sc];"
+        "[2:a]atrim=%s:%s,asetpts=PTS-STARTPTS,aresample=48000,apad=whole_dur=%s[bed];"
+        "[1:a]aresample=48000,apad=whole_dur=%s,atrim=0:%s,asplit=2[voice][sc];"
         "[bed][sc]sidechaincompress=threshold=%s:ratio=%s:attack=%s:release=%s[ducked];"
         "[voice][ducked]amix=inputs=2:duration=first:dropout_transition=0[a]"
         % (
@@ -115,7 +122,7 @@ def _bed_filter(duration, bed_offset, duck, voice):
     )
 
 
-def assemble(shots, wav_paths, output_path, work_dir, end_card_sec=None, bed_path=None, duck=None):
+def assemble(shots, wav_paths, output_path, work_dir, end_card_sec=None, bed_path=None, duck=None, intro_sec=0, outro_sec=0):
     """Build a black 9:16 MP4 from per-shot wavs. Returns the probed duration."""
     work_dir = Path(work_dir)
     work_dir.mkdir(parents=True, exist_ok=True)
@@ -123,6 +130,11 @@ def assemble(shots, wav_paths, output_path, work_dir, end_card_sec=None, bed_pat
     output_path.parent.mkdir(parents=True, exist_ok=True)
     segments = []
     offset = 0.0
+    if intro_sec:
+        segment = work_dir / "intro.mp4"
+        _encode_segment(segment, float(intro_sec), None, bed_path, offset, duck, voice=False)
+        segments.append(segment)
+        offset += float(intro_sec)
     for shot in shots:
         shot_id = shot["id"]
         duration = float(shot["duration_sec"])
@@ -138,6 +150,11 @@ def assemble(shots, wav_paths, output_path, work_dir, end_card_sec=None, bed_pat
         )
         segments.append(segment)
         offset += duration
+    if outro_sec:
+        segment = work_dir / "outro.mp4"
+        _encode_segment(segment, float(outro_sec), None, bed_path, offset, duck, voice=False)
+        segments.append(segment)
+        offset += float(outro_sec)
     if end_card_sec:
         segment = work_dir / "endcard.mp4"
         _encode_segment(segment, float(end_card_sec), None, bed_path, offset, duck, voice=False)
@@ -191,6 +208,8 @@ def build(storyboard, output_dir=None, radio_path=None, work_dir=None, client=No
         radio_path,
         work_dir,
         end_card_sec=storyboard["end_card"]["duration_sec"],
+        intro_sec=block_sec(storyboard, "intro"),
+        outro_sec=block_sec(storyboard, "outro"),
     )
     return duration
 
