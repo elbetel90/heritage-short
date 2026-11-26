@@ -38,7 +38,7 @@ Narration is English, spoken by Schedar: dry, low, and unsentimental. Each spoke
 
 ## User tests
 
-A user test is a showing, not a software check. Three people who are like the audience watch a cut. Their words are written here, and the storyboard changes because of what they said. The radio cut has been played to two people. One more person still has to hear it. The near-final showing has not happened yet.
+A user test is a showing, not a software check. Three people who are like the audience watch a cut. Their words are written here, and the storyboard changes because of what they said. The radio cut has been played to three people. The near-final cut has been played to three people. The storyboard has not been edited for the 26 November notes yet.
 
 ### Radio cut
 
@@ -46,7 +46,7 @@ The cut is a black screen, Tarek's English narration, and a quiet placeholder sc
 
 Played on 25 November 2026 to two people. They said the silence lands when the episode ends. The fridge keeping going is not audible. The mug outside the door is not visible, so it is hard to judge whether that gesture feels like a small hope.
 
-One more person, about 16 to 35, still has to hear this cut. The spoken lines stay as they are. The fridge question waits for a later mix. The mug question waits for the near-final cut.
+Played on 26 November 2026 to one more person, about 16 to 35. They said there is a sudden tone change in the narration. The spoken lines stay as they are. The fridge question waits for a later mix. The mug question waits for the picture.
 
 ### Maker's listen, 25 November 2026
 
@@ -56,4 +56,8 @@ The first listen did not stay one person. The opening was thin and started too s
 
 ### Near-final cut
 
-Not run yet. This is the second showing, after pictures, the chosen score, and the burned-in subtitles exist. Play that cut to at least three people from the same audience, on a phone speaker. Write what they said below, and change the storyboard again. A line that was clear with only a voice can still fail once the habit tracker is on screen.
+This is the second showing, after pictures, the chosen score, and the burned-in subtitles exist. It is played to at least three people from the same audience, on a phone.
+
+Played on 26 November 2026 to three people. They said the film shows pauses, the face is not intact in some shots, and the transition from one narration line to the next is not smooth.
+
+Those notes are the next edit. The pauses and the hard joins between lines are a timing change. A shot whose face breaks has to be replaced. The storyboard has not been changed for these notes yet.
