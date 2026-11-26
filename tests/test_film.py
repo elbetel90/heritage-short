@@ -85,3 +85,6 @@ class FilmTests(unittest.TestCase):
         self.assertEqual(audio["channels"], 2)
         self.assertEqual(wide_video["width"], 1280)
         self.assertEqual(wide_video["height"], 720)
+        srt = (directory / "film.srt").read_text(encoding="utf-8")
+        self.assertIn("A line.", srt)
+        self.assertIn("Made with AI", srt)
