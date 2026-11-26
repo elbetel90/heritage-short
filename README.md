@@ -42,7 +42,21 @@ That writes `outputs/keyframes/s01.png` through `s11.png`, each conditioned on t
 make film
 ```
 
-`make film` pans each accepted still for its shot length, lays the spoken wavs on top, burns the English subtitles, and writes `outputs/final/film-9x16.mp4` and `film-16x9.mp4`. When `music.chosen_id` names a file in `outputs/music`, that bed is ducked under the voice. Otherwise the bed is the quiet placeholder. Run `make radio` first so the wavs exist.
+`make film` pans each accepted still for its shot length, lays the spoken wavs on top, burns the English subtitles, and writes `outputs/final/film-9x16.mp4`, `film-16x9.mp4`, and `film.srt`. When `music.chosen_id` names a file in `outputs/music`, that bed is ducked under the voice. Otherwise the bed is the quiet placeholder. Run `make radio` first so the wavs exist.
+
+Moving shots are drafted with `kaggle/motion.py` on a GPU notebook. Stable Video Diffusion XT 1.1 makes a 576×1024 clip of about 4 seconds from each vertical still. Download a clip that succeeded and register it:
+
+```bash
+python3 -m pipeline.motion ingest s01 ~/Downloads/s01.mp4
+```
+
+The next `make film` uses that clip for the 9:16 cut and a matching file in `outputs/motion-16x9/` for the wide cut. Both hold the last frame when the clip is shorter than the shot. A shot with no clip keeps its pan.
+
+```bash
+python3 -m pipeline.costs
+```
+
+That rewrites `COSTS.md` from `runs.jsonl` and `runs-music.jsonl`.
 
 ## Setup
 

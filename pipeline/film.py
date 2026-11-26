@@ -14,6 +14,7 @@ from pipeline.radio import (
 )
 from pipeline.music import candidate_path
 from pipeline.keyframes import WIDE_DIR, GoldenError, render_wide
+from pipeline.motion import MOTION_DIR, WIDE_MOTION_DIR
 from pipeline.shots import OUTPUT_DIR as SHOT_DIR
 from pipeline.shots import ShotError, render as render_shots
 from pipeline.timing import DurationError, block_sec
@@ -59,6 +60,49 @@ def _video_filter(subtitle, end_card_text, wide=False):
     return ",".join(filters)
 
 
+def _lead_trim(picture, duration):
+    """Drop the first half second of a clip that is longer than the shot."""
+    try:
+        length = float(probe(picture)["format"]["duration"])
+    except (OSError, KeyError, ValueError):
+        return False
+    return length > float(duration) + 1.0
+
+
+def _stamp(seconds):
+    total = int(round(float(seconds) * 1000))
+    if total < 0:
+        total = 0
+    hours, total = divmod(total, 3600000)
+    minutes, total = divmod(total, 60000)
+    secs, millis = divmod(total, 1000)
+    return "%02d:%02d:%02d,%03d" % (hours, minutes, secs, millis)
+
+
+def write_srt(shots, dest, intro_sec=0, outro_sec=0, end_card=None):
+    """Write one subtitle file. Silent shots get no cue. Timing matches both masters."""
+    cues = []
+    cursor = float(intro_sec or 0)
+    for shot in shots:
+        duration = float(shot["duration_sec"])
+        text = ((shot.get("narration") or {}).get("subtitle_en") or "").strip()
+        if text:
+            cues.append((cursor, cursor + duration, text))
+        cursor += duration
+    cursor += float(outro_sec or 0)
+    card = ((end_card or {}).get("text") or "").strip()
+    if card:
+        cues.append((cursor, cursor + float(end_card["duration_sec"]), card))
+    lines = []
+    for index, (start, end, text) in enumerate(cues, start=1):
+        lines.append(str(index))
+        lines.append("%s --> %s" % (_stamp(start), _stamp(end)))
+        lines.append(text)
+        lines.append("")
+    Path(dest).write_text("\n".join(lines), encoding="utf-8")
+    return Path(dest)
+
+
 def _encode(segment, picture, duration, voice_path, subtitle, bed_path, bed_offset, duck, voice, end_card_text=None, black=False):
     if end_card_text or black:
         command = [
@@ -70,7 +114,10 @@ def _encode(segment, picture, duration, voice_path, subtitle, bed_path, bed_offs
             "color=c=black:s=%dx%d:r=24:d=%s" % (WIDTH, HEIGHT, duration),
         ]
     else:
-        command = ["ffmpeg", "-y", "-i", str(picture)]
+        command = ["ffmpeg", "-y"]
+        if _lead_trim(picture, duration):
+            command.extend(["-ss", "0.5"])
+        command.extend(["-i", str(picture)])
     if voice:
         command.extend(["-i", str(voice_path)])
     if bed_path:
@@ -87,12 +134,22 @@ def _encode(segment, picture, duration, voice_path, subtitle, bed_path, bed_offs
         )
         audio = _placeholder_filter(duration, voice)
     video = _video_filter(subtitle, end_card_text)
-    if video:
-        graph = "[0:v]%s[v];%s" % (video, audio)
-        video_map = "[v]"
+    if end_card_text or black:
+        if video:
+            graph = "[0:v]%s[v];%s" % (video, audio)
+            video_map = "[v]"
+        else:
+            graph = audio
+            video_map = "0:v"
     else:
-        graph = audio
-        video_map = "0:v"
+        fit = (
+            "scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,"
+            "tpad=stop_mode=clone:stop_duration=60"
+            % (WIDTH, HEIGHT, WIDTH, HEIGHT)
+        )
+        chain = fit if not video else "%s,%s" % (fit, video)
+        graph = "[0:v]%s[v];%s" % (chain, audio)
+        video_map = "[v]"
     command.extend(
         [
             "-filter_complex",
@@ -144,22 +201,21 @@ def _loudnorm(source, dest):
 WIDE_WIDTH = 1280
 WIDE_HEIGHT = 720
 WIDE_SHOT_DIR = ROOT / "outputs" / "shots-16x9"
-# A landscape still already fills 16:9. This only corrects a pixel or two.
-WIDE_FIT = "scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d" % (
-    WIDE_WIDTH,
-    WIDE_HEIGHT,
-    WIDE_WIDTH,
-    WIDE_HEIGHT,
-)
+# Scale a 16:9 clip to the master and hold the last frame when it is short.
+WIDE_FIT = (
+    "scale=%d:%d:force_original_aspect_ratio=increase,crop=%d:%d,"
+    "tpad=stop_mode=clone:stop_duration=60"
+) % (WIDE_WIDTH, WIDE_HEIGHT, WIDE_WIDTH, WIDE_HEIGHT)
 
 
 def _reframe(picture, audio_source, dest, duration, subtitle):
     video = _video_filter(subtitle, None, wide=True)
     chain = WIDE_FIT if not video else "%s,%s" % (WIDE_FIT, video)
-    _run(
+    command = ["ffmpeg", "-y"]
+    if _lead_trim(picture, duration):
+        command.extend(["-ss", "0.5"])
+    command.extend(
         [
-            "ffmpeg",
-            "-y",
             "-i",
             str(picture),
             "-i",
@@ -181,6 +237,7 @@ def _reframe(picture, audio_source, dest, duration, subtitle):
             str(dest),
         ]
     )
+    _run(command)
 
 
 def _wide_hold(audio_source, dest, duration, text=None):
@@ -224,7 +281,7 @@ def _wide_hold(audio_source, dest, duration, text=None):
 
 
 def _write_wide(shots, clip_paths, segments, card_source, wide_path, work_dir, end_card, intro_source=None, outro_source=None, intro_sec=0, outro_sec=0, wide_clips=None):
-    """Write a 16:9 master from landscape stills. Audio comes from the vertical mix."""
+    """Write a 16:9 master. Picture comes from a wide clip or a landscape pan. Audio comes from the vertical mix."""
     wide_dir = Path(work_dir) / "wide"
     wide_dir.mkdir(parents=True, exist_ok=True)
     wide_segments = []
@@ -353,6 +410,13 @@ def assemble(shots, clip_paths, wav_paths, output_path, wide_path, work_dir, end
         ]
     )
     _loudnorm(joined, output_path)
+    write_srt(
+        shots,
+        Path(output_path).with_name("film.srt"),
+        intro_sec=intro_sec,
+        outro_sec=outro_sec,
+        end_card=end_card,
+    )
     _write_wide(
         shots,
         clip_paths,
@@ -394,8 +458,10 @@ def build(storyboard, narration_dir=None, shot_dir=None, final_dir=None):
     wide_clips = {}
     for shot in storyboard["shots"]:
         wav_paths[shot["id"]] = narration_dir / (shot["id"] + ".wav")
-        clip_paths[shot["id"]] = shot_dir / (shot["id"] + ".mp4")
-        wide_clips[shot["id"]] = wide_shot_dir / (shot["id"] + ".mp4")
+        motion = MOTION_DIR / (shot["id"] + ".mp4")
+        clip_paths[shot["id"]] = motion if motion.is_file() else shot_dir / (shot["id"] + ".mp4")
+        wide_motion = WIDE_MOTION_DIR / (shot["id"] + ".mp4")
+        wide_clips[shot["id"]] = wide_motion if wide_motion.is_file() else wide_shot_dir / (shot["id"] + ".mp4")
         if not wav_paths[shot["id"]].is_file():
             raise ShotError("missing narration: %s" % wav_paths[shot["id"]])
     vertical = final_dir / "film-9x16.mp4"
