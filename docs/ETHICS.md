@@ -21,8 +21,9 @@ Style prompts describe qualities of light, palette, and medium. They do not name
 | Gemini API and Gemini TTS | Free tier. Used for the storyboard draft, translation, and narration. |
 | FLUX.2 klein 4B (`@cf/black-forest-labs/flux-2-klein-4b`) on Cloudflare Workers AI | Apache 2.0. This is the keyframe model. |
 | FLUX.2 klein 9B | Non-commercial. Not used. |
-| Wan 2.2 | Apache 2.0. Draft clips at 480p. |
-| HunyuanVideo 1.5 | Alternative if Wan cannot make a shot. The licence is checked and written here before the first call. |
+| Wan 2.2 | Apache 2.0. Tried for the moving shots. It did not fit in the GPU memory, so it is not in the film. |
+| HunyuanVideo 1.5 | The checkpoint returned 401 and did not download. Not used. |
+| Stable Video Diffusion XT 1.1 (`stabilityai/stable-video-diffusion-img2vid-xt-1-1`) | Stability AI Community License, last updated 5 July 2024. Research, non-commercial, and commercial use are free under USD $1,000,000 annual revenue. Above that, the licence ends and an enterprise licence is required. This film is a non-commercial student short. The weights are gated: the Hugging Face agreement was accepted before download. https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt-1-1/blob/main/LICENSE.md |
 | ACE-Step 1.5 | MIT. Outputs may be used commercially. The score is instrumental. |
 | FFmpeg | Local assembly only. The licence is the one that ships with the build on this machine. |
 

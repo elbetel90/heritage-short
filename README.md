@@ -56,7 +56,7 @@ The next `make film` uses that clip for the 9:16 cut and a matching file in `out
 python3 -m pipeline.costs
 ```
 
-That rewrites `COSTS.md` from `runs.jsonl` and `runs-music.jsonl`.
+That rewrites `COSTS.md` from `runs.jsonl`, `runs-music.jsonl`, `runs-motion.jsonl`, and `runs-motion-16x9.jsonl`.
 
 ## Setup
 
@@ -76,4 +76,4 @@ Video and music run on a phone-verified Kaggle account. Those stages are not par
 
 ## Cost
 
-API calls use the Gemini and Cloudflare free tiers. GPU time uses Kaggle’s weekly quota. Every model call will be appended to `runs.jsonl` with the model, parameters, seed, latency, and a list-price equivalent. Measured totals will be written in `COSTS.md`.
+API calls use the Gemini and Cloudflare free tiers. GPU time uses free Colab and Kaggle quota. `COSTS.md` counts the logged calls. The GPU minutes it can measure are the motion lines that kept a latency, priced at Google Cloud's published T4 rate. That figure is a list price, not a bill.
