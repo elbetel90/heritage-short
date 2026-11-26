@@ -33,10 +33,15 @@ class MotionTests(unittest.TestCase):
             encoding="utf-8",
         )
         counts, spent = tally([log])
-        text = document(counts, spent)
+        text = document(
+            counts,
+            spent,
+            gpu=[{"file": "runs-motion.jsonl", "shot_id": "s10", "status": "ok", "latency_ms": 60000}],
+        )
         self.assertEqual(spent, 0)
         self.assertIn("| keyframes | flux | ok | 1 |", text)
-        self.assertIn("does not invent a list price", text)
+        self.assertIn("published rate, not a measured bill", text)
+        self.assertIn("| runs-motion.jsonl | s10 | ok | 1.00 |", text)
 
 
 if __name__ == "__main__":
